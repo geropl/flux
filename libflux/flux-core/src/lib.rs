@@ -34,6 +34,7 @@ pub mod scanner;
 pub mod semantic;
 
 mod errors;
+mod locator;
 
 use std::hash::BuildHasherDefault;
 

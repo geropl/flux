@@ -926,7 +926,6 @@ impl<'a> SerializingVisitor<'a> {
         loc: &ast::SourceLocation,
     ) -> Option<WIPOffset<fbast::SourceLocation<'a>>> {
         let file = self.create_opt_string(&loc.file);
-        let source = self.create_opt_string(&loc.source);
         Some(fbast::SourceLocation::create(
             &mut self.builder,
             &fbast::SourceLocationArgs {
@@ -939,7 +938,6 @@ impl<'a> SerializingVisitor<'a> {
                     loc.end.line as i32,
                     loc.end.column as i32,
                 )),
-                source,
             },
         ))
     }

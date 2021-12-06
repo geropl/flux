@@ -24,7 +24,6 @@ func (l *Loc) FromBuf(fb *fbsemantic.SourceLocation) error {
 	l.File = string(fb.File())
 	posFromBuf(&l.Start, fb.Start(nil))
 	posFromBuf(&l.End, fb.End(nil))
-	l.Source = string(fb.Source())
 	return nil
 }
 
