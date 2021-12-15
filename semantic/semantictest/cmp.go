@@ -181,6 +181,19 @@ func TransformValue(v values.Value) map[string]interface{} {
 			"type":     semantic.Dictionary.String(),
 			"elements": elements,
 		}
+	case semantic.Vector:
+		vec, ok := v.(values.Vector)
+		if !ok {
+			panic("value is not a vector")
+		}
+		elements := make([]map[string]interface{}, vec.Vector().Len())
+		for i := range elements {
+			elements[i] = TransformValue(vec.Vector().Get(i))
+		}
+		return map[string]interface{}{
+			"type":     semantic.Vector.String(),
+			"elements": elements,
+		}
 	default:
 		panic(fmt.Errorf("unexpected value type %v", v.Type()))
 	}

@@ -11,6 +11,7 @@ import (
 	"github.com/influxdata/flux/codes"
 	"github.com/influxdata/flux/compiler"
 	_ "github.com/influxdata/flux/fluxinit/static"
+	"github.com/influxdata/flux/internal/arrowutil"
 	"github.com/influxdata/flux/internal/errors"
 	"github.com/influxdata/flux/runtime"
 	"github.com/influxdata/flux/semantic"
@@ -573,6 +574,25 @@ func TestCompileAndEval(t *testing.T) {
 		//	}),
 		//	wantEvalErr: true,
 		// },
+		{
+			name: "vectorized map function",
+			fn:   `(r) => ({r with a: "one", b: "two"})`,
+			inType: semantic.NewObjectType([]semantic.PropertyType{
+				{Key: []byte("r"), Value: semantic.NewObjectType([]semantic.PropertyType{
+					{Key: []byte("_value"), Value: semantic.NewVectorType(semantic.BasicInt)},
+				})},
+			}),
+			input: values.NewObjectWithValues(map[string]values.Value{
+				"r": values.NewObjectWithValues(map[string]values.Value{
+					"_value": values.NewInt(1),
+				}),
+			}),
+			want: values.NewObjectWithValues(map[string]values.Value{
+				"_value": arrowutil.NewVectorFromSlice([]interface{}{int64(1)}, flux.TInt),
+				"a":      arrowutil.NewVectorFromSlice([]interface{}{"one"}, flux.TString),
+				"b":      arrowutil.NewVectorFromSlice([]interface{}{"two"}, flux.TString),
+			}),
+		},
 	}
 
 	for _, tc := range testCases {

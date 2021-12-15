@@ -25,6 +25,10 @@ type Evaluator interface {
 	Eval(ctx context.Context, scope Scope) (values.Value, error)
 }
 
+type vectorEvaluator struct {
+	t semantic.MonoType
+}
+
 type compiledFn struct {
 	root        Evaluator
 	parentScope Scope

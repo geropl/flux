@@ -15,6 +15,12 @@ func Compile(scope Scope, f *semantic.FunctionExpression, in semantic.MonoType) 
 		return nil, errors.Newf(codes.Invalid, "function input must be an object @ %v", f.Location())
 	}
 
+	// If the function is Vectorizable, use the FunctionExpression behind the
+	// `Vectorized` pointer instead of f.
+	if f.Vectorized != nil {
+		f = f.Vectorized
+	}
+
 	// Retrieve the function argument types and create an object type from them.
 	fnType := f.TypeOf()
 	argN, err := fnType.NumArguments()
@@ -383,6 +389,12 @@ func apply(sub map[uint64]semantic.MonoType, props []semantic.PropertyType, t se
 			return t
 		}
 		return semantic.NewFunctionType(apply(sub, nil, retn), args)
+	case semantic.Vec:
+		element, err := t.ElemType()
+		if err != nil {
+			return t
+		}
+		return semantic.NewVectorType(apply(sub, props, element))
 	}
 	// If none of the above cases are matched, something has gone
 	// seriously wrong and we should panic.
