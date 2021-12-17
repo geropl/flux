@@ -7,9 +7,13 @@ import (
 	"regexp"
 	"strings"
 
+	flatbuffers "github.com/google/flatbuffers/go"
+	"github.com/influxdata/flux"
 	"github.com/influxdata/flux/ast"
 	"github.com/influxdata/flux/codes"
+	"github.com/influxdata/flux/internal/arrowutil"
 	"github.com/influxdata/flux/internal/errors"
+	"github.com/influxdata/flux/internal/fbsemantic"
 	"github.com/influxdata/flux/interpreter"
 	"github.com/influxdata/flux/semantic"
 	"github.com/influxdata/flux/values"
@@ -26,7 +30,26 @@ type Evaluator interface {
 }
 
 type vectorEvaluator struct {
-	t semantic.MonoType
+	typ         semantic.MonoType
+	elementType semantic.MonoType
+	elements    []Evaluator
+}
+
+func (v vectorEvaluator) Type() semantic.MonoType {
+	mt, _ := semantic.NewMonoType(flatbuffers.Table{}, fbsemantic.MonoTypeVector)
+	return mt
+}
+
+func (v vectorEvaluator) Eval(ctx context.Context, scope Scope) (values.Value, error) {
+	vs := make([]values.Value, len(v.elements))
+	for i, ev := range v.elements {
+		val, err := eval(ctx, ev, scope)
+		if err != nil {
+			return nil, err
+		}
+		vs[i] = val
+	}
+	return arrowutil.NewVectorFromSlice(vs, flux.ColumnType(v.elementType)), nil
 }
 
 type compiledFn struct {

@@ -40,14 +40,14 @@ func NewVectorValue(arr array.Interface, typ flux.ColType) values.Vector {
 	}
 }
 
-func NewVectorFromSlice(values []interface{}, typ flux.ColType) values.Vector {
+func NewVectorFromSlice(values []values.Value, typ flux.ColType) values.Vector {
 	switch elemType := flux.SemanticType(typ); elemType {
 
 	case semantic.BasicInt:
 		mem := memory.DefaultAllocator
 		b := array.NewIntBuilder(mem)
 		for _, v := range values {
-			b.Append(v.(int64))
+			b.Append(v.Int())
 		}
 		arr := b.NewIntArray()
 		return NewIntVectorValue(arr)
@@ -56,7 +56,7 @@ func NewVectorFromSlice(values []interface{}, typ flux.ColType) values.Vector {
 		mem := memory.DefaultAllocator
 		b := array.NewUintBuilder(mem)
 		for _, v := range values {
-			b.Append(v.(uint64))
+			b.Append(v.UInt())
 		}
 		arr := b.NewUintArray()
 		return NewUintVectorValue(arr)
@@ -65,7 +65,7 @@ func NewVectorFromSlice(values []interface{}, typ flux.ColType) values.Vector {
 		mem := memory.DefaultAllocator
 		b := array.NewFloatBuilder(mem)
 		for _, v := range values {
-			b.Append(v.(float64))
+			b.Append(v.Float())
 		}
 		arr := b.NewFloatArray()
 		return NewFloatVectorValue(arr)
@@ -74,7 +74,7 @@ func NewVectorFromSlice(values []interface{}, typ flux.ColType) values.Vector {
 		mem := memory.DefaultAllocator
 		b := array.NewBooleanBuilder(mem)
 		for _, v := range values {
-			b.Append(v.(bool))
+			b.Append(v.Bool())
 		}
 		arr := b.NewBooleanArray()
 		return NewBooleanVectorValue(arr)
@@ -83,7 +83,7 @@ func NewVectorFromSlice(values []interface{}, typ flux.ColType) values.Vector {
 		mem := memory.DefaultAllocator
 		b := array.NewStringBuilder(mem)
 		for _, v := range values {
-			b.Append(v.(string))
+			b.Append(v.Str())
 		}
 		arr := b.NewStringArray()
 		return NewStringVectorValue(arr)
@@ -99,16 +99,18 @@ var _ values.Vector = IntVectorValue{}
 type IntVectorValue struct {
 	arr *array.Int
 	typ semantic.MonoType
+	et  semantic.MonoType
 }
 
 func NewIntVectorValue(arr *array.Int) values.Vector {
 	return IntVectorValue{
 		arr: arr,
 		typ: semantic.NewVectorType(semantic.BasicInt),
+		et:  semantic.BasicInt,
 	}
 }
 
-func (v IntVectorValue) Vector() values.Vector { return v }
+func (v IntVectorValue) ElementType() semantic.MonoType { return v.et }
 
 func (v IntVectorValue) Type() semantic.MonoType { return v.typ }
 func (v IntVectorValue) IsNull() bool            { return false }
@@ -143,19 +145,18 @@ func (v IntVectorValue) Dict() values.Dictionary {
 }
 
 func (v IntVectorValue) Equal(other values.Value) bool {
-	otherVal, ok := other.(IntVectorValue)
+	otherv, ok := other.(IntVectorValue)
 	if !ok {
 		return false
 	}
-	if other.Type().Nature() != semantic.Vector {
+	if otherv.Type().Nature() != semantic.Vector {
 		return false
-	} else if v.arr.Len() != otherVal.Vector().Len() {
+	} else if v.Len() != otherv.Len() {
 		return false
 	}
 
-	otherVector := otherVal.Vector()
 	for i, n := 0, v.arr.Len(); i < n; i++ {
-		if !v.Get(i).Equal(otherVector.Get(i)) {
+		if !v.Get(i).Equal(otherv.Get(i)) {
 			return false
 		}
 	}
@@ -188,16 +189,18 @@ var _ values.Vector = UintVectorValue{}
 type UintVectorValue struct {
 	arr *array.Uint
 	typ semantic.MonoType
+	et  semantic.MonoType
 }
 
 func NewUintVectorValue(arr *array.Uint) values.Vector {
 	return UintVectorValue{
 		arr: arr,
 		typ: semantic.NewVectorType(semantic.BasicUint),
+		et:  semantic.BasicUint,
 	}
 }
 
-func (v UintVectorValue) Vector() values.Vector { return v }
+func (v UintVectorValue) ElementType() semantic.MonoType { return v.et }
 
 func (v UintVectorValue) Type() semantic.MonoType { return v.typ }
 func (v UintVectorValue) IsNull() bool            { return false }
@@ -234,19 +237,18 @@ func (v UintVectorValue) Dict() values.Dictionary {
 }
 
 func (v UintVectorValue) Equal(other values.Value) bool {
-	otherVal, ok := other.(UintVectorValue)
+	otherv, ok := other.(UintVectorValue)
 	if !ok {
 		return false
 	}
-	if other.Type().Nature() != semantic.Vector {
+	if otherv.Type().Nature() != semantic.Vector {
 		return false
-	} else if v.arr.Len() != otherVal.Vector().Len() {
+	} else if v.Len() != otherv.Len() {
 		return false
 	}
 
-	otherVector := otherVal.Vector()
 	for i, n := 0, v.arr.Len(); i < n; i++ {
-		if !v.Get(i).Equal(otherVector.Get(i)) {
+		if !v.Get(i).Equal(otherv.Get(i)) {
 			return false
 		}
 	}
@@ -281,16 +283,18 @@ var _ values.Vector = FloatVectorValue{}
 type FloatVectorValue struct {
 	arr *array.Float
 	typ semantic.MonoType
+	et  semantic.MonoType
 }
 
 func NewFloatVectorValue(arr *array.Float) values.Vector {
 	return FloatVectorValue{
 		arr: arr,
 		typ: semantic.NewVectorType(semantic.BasicFloat),
+		et:  semantic.BasicFloat,
 	}
 }
 
-func (v FloatVectorValue) Vector() values.Vector { return v }
+func (v FloatVectorValue) ElementType() semantic.MonoType { return v.et }
 
 func (v FloatVectorValue) Type() semantic.MonoType { return v.typ }
 func (v FloatVectorValue) IsNull() bool            { return false }
@@ -329,19 +333,18 @@ func (v FloatVectorValue) Dict() values.Dictionary {
 }
 
 func (v FloatVectorValue) Equal(other values.Value) bool {
-	otherVal, ok := other.(FloatVectorValue)
+	otherv, ok := other.(FloatVectorValue)
 	if !ok {
 		return false
 	}
-	if other.Type().Nature() != semantic.Vector {
+	if otherv.Type().Nature() != semantic.Vector {
 		return false
-	} else if v.arr.Len() != otherVal.Vector().Len() {
+	} else if v.Len() != otherv.Len() {
 		return false
 	}
 
-	otherVector := otherVal.Vector()
 	for i, n := 0, v.arr.Len(); i < n; i++ {
-		if !v.Get(i).Equal(otherVector.Get(i)) {
+		if !v.Get(i).Equal(otherv.Get(i)) {
 			return false
 		}
 	}
@@ -376,16 +379,18 @@ var _ values.Vector = BooleanVectorValue{}
 type BooleanVectorValue struct {
 	arr *array.Boolean
 	typ semantic.MonoType
+	et  semantic.MonoType
 }
 
 func NewBooleanVectorValue(arr *array.Boolean) values.Vector {
 	return BooleanVectorValue{
 		arr: arr,
 		typ: semantic.NewVectorType(semantic.BasicBool),
+		et:  semantic.BasicBool,
 	}
 }
 
-func (v BooleanVectorValue) Vector() values.Vector { return v }
+func (v BooleanVectorValue) ElementType() semantic.MonoType { return v.et }
 
 func (v BooleanVectorValue) Type() semantic.MonoType { return v.typ }
 func (v BooleanVectorValue) IsNull() bool            { return false }
@@ -426,19 +431,18 @@ func (v BooleanVectorValue) Dict() values.Dictionary {
 }
 
 func (v BooleanVectorValue) Equal(other values.Value) bool {
-	otherVal, ok := other.(BooleanVectorValue)
+	otherv, ok := other.(BooleanVectorValue)
 	if !ok {
 		return false
 	}
-	if other.Type().Nature() != semantic.Vector {
+	if otherv.Type().Nature() != semantic.Vector {
 		return false
-	} else if v.arr.Len() != otherVal.Vector().Len() {
+	} else if v.Len() != otherv.Len() {
 		return false
 	}
 
-	otherVector := otherVal.Vector()
 	for i, n := 0, v.arr.Len(); i < n; i++ {
-		if !v.Get(i).Equal(otherVector.Get(i)) {
+		if !v.Get(i).Equal(otherv.Get(i)) {
 			return false
 		}
 	}
@@ -473,16 +477,18 @@ var _ values.Vector = StringVectorValue{}
 type StringVectorValue struct {
 	arr *array.String
 	typ semantic.MonoType
+	et  semantic.MonoType
 }
 
 func NewStringVectorValue(arr *array.String) values.Vector {
 	return StringVectorValue{
 		arr: arr,
 		typ: semantic.NewVectorType(semantic.BasicString),
+		et:  semantic.BasicString,
 	}
 }
 
-func (v StringVectorValue) Vector() values.Vector { return v }
+func (v StringVectorValue) ElementType() semantic.MonoType { return v.et }
 
 func (v StringVectorValue) Type() semantic.MonoType { return v.typ }
 func (v StringVectorValue) IsNull() bool            { return false }
@@ -523,19 +529,18 @@ func (v StringVectorValue) Dict() values.Dictionary {
 }
 
 func (v StringVectorValue) Equal(other values.Value) bool {
-	otherVal, ok := other.(StringVectorValue)
+	otherv, ok := other.(StringVectorValue)
 	if !ok {
 		return false
 	}
-	if other.Type().Nature() != semantic.Vector {
+	if otherv.Type().Nature() != semantic.Vector {
 		return false
-	} else if v.arr.Len() != otherVal.Vector().Len() {
+	} else if v.Len() != otherv.Len() {
 		return false
 	}
 
-	otherVector := otherVal.Vector()
 	for i, n := 0, v.arr.Len(); i < n; i++ {
-		if !v.Get(i).Equal(otherVector.Get(i)) {
+		if !v.Get(i).Equal(otherv.Get(i)) {
 			return false
 		}
 	}

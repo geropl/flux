@@ -38,6 +38,7 @@ func (*NativeVariableAssignment) node() {}
 func (*StringExpression) node()      {}
 func (*ArrayExpression) node()       {}
 func (*DictExpression) node()        {}
+func (*VectorExpression) node()      {}
 func (*FunctionExpression) node()    {}
 func (*BinaryExpression) node()      {}
 func (*CallExpression) node()        {}
@@ -562,6 +563,25 @@ func (e *DictExpression) Copy() Node {
 }
 func (e *DictExpression) TypeOf() MonoType {
 	return e.Type
+}
+
+type VectorExpression struct {
+	Loc
+
+	Elements []Expression
+	Type     MonoType
+}
+
+func (e *VectorExpression) NodeType() string { return "VectorExpression" }
+
+func (e *VectorExpression) Copy() Node {
+	if e == nil {
+		return e
+	}
+
+	ne := new(VectorExpression)
+	*ne = *e
+	return ne
 }
 
 // FunctionExpression represents the definition of a function

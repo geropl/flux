@@ -94,6 +94,8 @@ func nature(tbl flatbuffers.Table, t fbsemantic.MonoType) Nature {
 		return Function
 	case fbsemantic.MonoTypeDict:
 		return Dictionary
+	case fbsemantic.MonoTypeVector:
+		return Vector
 	case fbsemantic.MonoTypeNONE,
 		fbsemantic.MonoTypeVar:
 		fallthrough
@@ -282,8 +284,11 @@ func getVec(tbl fbTabler) (*fbsemantic.Vector, error) {
 	return vec, nil
 }
 
-// ElemType returns the element type if this monotype is an array, and an error otherise.
+// ElemType returns the element type if this monotype is an array or vector, and an error otherise.
 func (mt MonoType) ElemType() (MonoType, error) {
+	// XXX: sean (16 Dec 2021) - This err1/err2 business seems sloppy. There's
+	// probably a better way to do this. This is functional for now though.
+	// Will revisit later.
 	arr, err1 := getArr(mt.tbl)
 	vec, err2 := getVec(mt.tbl)
 	if err1 != nil && err2 != nil {

@@ -15,8 +15,8 @@ func Compile(scope Scope, f *semantic.FunctionExpression, in semantic.MonoType) 
 		return nil, errors.Newf(codes.Invalid, "function input must be an object @ %v", f.Location())
 	}
 
-	// If the function is Vectorizable, use the FunctionExpression behind the
-	// `Vectorized` pointer instead of f.
+	// If the function is Vectorizable, `f.Vectorized` will be populated, and
+	// we should use the FunctionExpression it points to instead of `f`
 	if f.Vectorized != nil {
 		f = f.Vectorized
 	}
@@ -262,6 +262,8 @@ func substituteTypes(subst map[uint64]semantic.MonoType, inferredType, actualTyp
 			}
 		}
 		return nil
+	case semantic.Vec:
+		return nil
 	case semantic.Fun:
 		// TODO: https://github.com/influxdata/flux/issues/2587
 		return errors.New(codes.Unimplemented)
@@ -394,7 +396,7 @@ func apply(sub map[uint64]semantic.MonoType, props []semantic.PropertyType, t se
 		if err != nil {
 			return t
 		}
-		return semantic.NewVectorType(apply(sub, props, element))
+		return semantic.NewVectorType(apply(sub, nil, element))
 	}
 	// If none of the above cases are matched, something has gone
 	// seriously wrong and we should panic.
@@ -739,6 +741,20 @@ func compile(n semantic.Node, subst map[uint64]semantic.MonoType) (Evaluator, er
 			t:      fnType,
 			params: params,
 			fn:     n,
+		}, nil
+	case *semantic.VectorExpression:
+		elements := make([]Evaluator, len(n.Elements))
+		for i, e := range n.Elements {
+			el, err := compile(e, subst)
+			if err != nil {
+				return nil, err
+			}
+			elements[i] = el
+		}
+		return &vectorEvaluator{
+			typ:         n.Type,
+			elementType: elements[0].Type(),
+			elements:    elements,
 		}, nil
 	default:
 		return nil, errors.Newf(codes.Internal, "unknown semantic node of type %T", n)

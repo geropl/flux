@@ -584,13 +584,19 @@ func TestCompileAndEval(t *testing.T) {
 			}),
 			input: values.NewObjectWithValues(map[string]values.Value{
 				"r": values.NewObjectWithValues(map[string]values.Value{
-					"_value": values.NewInt(1),
+					"_value": values.NewInt(int64(1)),
 				}),
 			}),
 			want: values.NewObjectWithValues(map[string]values.Value{
-				"_value": arrowutil.NewVectorFromSlice([]interface{}{int64(1)}, flux.TInt),
-				"a":      arrowutil.NewVectorFromSlice([]interface{}{"one"}, flux.TString),
-				"b":      arrowutil.NewVectorFromSlice([]interface{}{"two"}, flux.TString),
+				"_value": arrowutil.NewVectorFromSlice([]values.Value{
+					values.NewInt(int64(1)),
+				}, flux.TInt),
+				"a": arrowutil.NewVectorFromSlice([]values.Value{
+					values.NewString("one"),
+				}, flux.TString),
+				"b": arrowutil.NewVectorFromSlice([]values.Value{
+					values.NewString("two"),
+				}, flux.TString),
 			}),
 		},
 	}
