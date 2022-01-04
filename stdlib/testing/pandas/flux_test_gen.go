@@ -23,7 +23,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "capitalize_strings_toUpper_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,A,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,K9N  GM,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,B  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDE,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,CLNSKNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_toUpper = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time}))\n\ntest _string_toUpper = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toUpper})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -41,7 +41,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -58,7 +58,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "capitalize_strings_toUpper_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -78,7 +78,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "capitalize_strings_toUpper_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -95,7 +95,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "capitalize_strings_toUpper_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -118,7 +118,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -135,7 +135,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -152,7 +152,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -171,7 +171,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -190,7 +190,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,A,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,K9N  GM,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,B  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDE,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,CLNSKNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -207,7 +207,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -226,7 +226,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,A,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,K9N  GM,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,B  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDE,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,CLNSKNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -245,7 +245,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "t_string_toUpper = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -262,7 +262,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "t_string_toUpper",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -282,7 +282,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 20,
 							Line:   35,
@@ -301,7 +301,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "capitalize_strings_toUpper_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -319,7 +319,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "capitalize_strings_toUpper_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -337,7 +337,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "capitalize_strings_toUpper_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -355,7 +355,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -373,7 +373,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -393,7 +393,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -415,7 +415,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "capitalize_strings_toUpper_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -432,7 +432,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "capitalize_strings_toUpper_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -454,7 +454,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "capitalize_strings_toUpper_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -472,7 +472,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "capitalize_strings_toUpper_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -490,7 +490,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "capitalize_strings_toUpper_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -508,7 +508,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -529,7 +529,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "(r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -546,7 +546,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "({r with _value: strings.toUpper(v: r._value), _time: r._time})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -563,7 +563,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "{r with _value: strings.toUpper(v: r._value), _time: r._time}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -581,7 +581,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "capitalize_strings_toUpper_test.flux",
-														Source: "_value: strings.toUpper(v: r._value)",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -599,7 +599,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "capitalize_strings_toUpper_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -620,7 +620,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "capitalize_strings_toUpper_test.flux",
-																Source: "v: r._value",
+																Source: "",
 																Start: ast.Position{
 																	Column: 60,
 																	Line:   38,
@@ -638,7 +638,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "capitalize_strings_toUpper_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 60,
 																		Line:   38,
@@ -656,7 +656,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "capitalize_strings_toUpper_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 60,
 																			Line:   38,
@@ -676,7 +676,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "capitalize_strings_toUpper_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 63,
 																			Line:   38,
@@ -694,7 +694,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "capitalize_strings_toUpper_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 63,
 																				Line:   38,
@@ -713,7 +713,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "capitalize_strings_toUpper_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 65,
 																				Line:   38,
@@ -737,7 +737,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "capitalize_strings_toUpper_test.flux",
-															Source: "strings.toUpper(v: r._value)",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -754,7 +754,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "capitalize_strings_toUpper_test.flux",
-																Source: "strings.toUpper",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -772,7 +772,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "capitalize_strings_toUpper_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -791,7 +791,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "capitalize_strings_toUpper_test.flux",
-																	Source: "toUpper",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -815,7 +815,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "capitalize_strings_toUpper_test.flux",
-														Source: "_time: r._time",
+														Source: "",
 														Start: ast.Position{
 															Column: 74,
 															Line:   38,
@@ -833,7 +833,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "capitalize_strings_toUpper_test.flux",
-															Source: "_time",
+															Source: "",
 															Start: ast.Position{
 																Column: 74,
 																Line:   38,
@@ -853,7 +853,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "capitalize_strings_toUpper_test.flux",
-															Source: "r._time",
+															Source: "",
 															Start: ast.Position{
 																Column: 81,
 																Line:   38,
@@ -871,7 +871,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "capitalize_strings_toUpper_test.flux",
-																Source: "r",
+																Source: "",
 																Start: ast.Position{
 																	Column: 81,
 																	Line:   38,
@@ -890,7 +890,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "capitalize_strings_toUpper_test.flux",
-																Source: "_time",
+																Source: "",
 																Start: ast.Position{
 																	Column: 83,
 																	Line:   38,
@@ -913,7 +913,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "capitalize_strings_toUpper_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -937,7 +937,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -955,7 +955,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -982,7 +982,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "capitalize_strings_toUpper_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.toUpper(v: r._value), _time: r._time}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -999,7 +999,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "capitalize_strings_toUpper_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -1023,7 +1023,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "capitalize_strings_toUpper_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   35,
@@ -1041,7 +1041,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "capitalize_strings_toUpper_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   35,
@@ -1060,7 +1060,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "capitalize_strings_toUpper_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 27,
 								Line:   35,
@@ -1081,7 +1081,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "_string_toUpper = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toUpper})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -1098,7 +1098,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "capitalize_strings_toUpper_test.flux",
-							Source: "_string_toUpper",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -1118,7 +1118,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "capitalize_strings_toUpper_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toUpper})",
+							Source: "",
 							Start: ast.Position{
 								Column: 24,
 								Line:   40,
@@ -1135,7 +1135,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "capitalize_strings_toUpper_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toUpper})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -1152,7 +1152,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "capitalize_strings_toUpper_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toUpper}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -1170,7 +1170,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "capitalize_strings_toUpper_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -1188,7 +1188,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -1209,7 +1209,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -1227,7 +1227,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -1245,7 +1245,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "capitalize_strings_toUpper_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -1265,7 +1265,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "capitalize_strings_toUpper_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -1287,7 +1287,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -1304,7 +1304,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -1322,7 +1322,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -1341,7 +1341,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -1365,7 +1365,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "capitalize_strings_toUpper_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -1383,7 +1383,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -1404,7 +1404,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -1422,7 +1422,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -1440,7 +1440,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "capitalize_strings_toUpper_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -1460,7 +1460,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "capitalize_strings_toUpper_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -1482,7 +1482,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -1499,7 +1499,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "capitalize_strings_toUpper_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -1517,7 +1517,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -1536,7 +1536,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "capitalize_strings_toUpper_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -1560,7 +1560,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "capitalize_strings_toUpper_test.flux",
-										Source: "fn: t_string_toUpper",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -1578,7 +1578,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -1598,7 +1598,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "capitalize_strings_toUpper_test.flux",
-											Source: "t_string_toUpper",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -1628,7 +1628,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "test _string_toUpper = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toUpper})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -1648,7 +1648,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -1665,7 +1665,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -1685,7 +1685,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -1702,7 +1702,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -1724,7 +1724,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "capitalize_strings_toUpper_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -1741,7 +1741,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "capitalize_strings_toUpper_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -1761,7 +1761,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "cat_strings_joinStr_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,aPLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gmPLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  PLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDePLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI  PLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  PLUS,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_joinStr = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")}))\n\ntest _string_joinStr = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_joinStr})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -1779,7 +1779,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -1796,7 +1796,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "cat_strings_joinStr_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -1816,7 +1816,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "cat_strings_joinStr_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -1833,7 +1833,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "cat_strings_joinStr_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -1856,7 +1856,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -1873,7 +1873,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -1890,7 +1890,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -1909,7 +1909,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -1928,7 +1928,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,aPLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gmPLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  PLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDePLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI  PLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  PLUS,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -1945,7 +1945,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -1964,7 +1964,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,aPLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gmPLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  PLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDePLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI  PLUS,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  PLUS,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -1983,7 +1983,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "t_string_joinStr = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -2000,7 +2000,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "t_string_joinStr",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -2020,7 +2020,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 20,
 							Line:   35,
@@ -2039,7 +2039,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "cat_strings_joinStr_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -2057,7 +2057,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "cat_strings_joinStr_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -2075,7 +2075,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "cat_strings_joinStr_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -2093,7 +2093,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -2111,7 +2111,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -2131,7 +2131,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -2153,7 +2153,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "cat_strings_joinStr_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -2170,7 +2170,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "cat_strings_joinStr_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -2192,7 +2192,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "cat_strings_joinStr_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -2210,7 +2210,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "cat_strings_joinStr_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -2228,7 +2228,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "cat_strings_joinStr_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -2246,7 +2246,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -2267,7 +2267,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "(r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -2284,7 +2284,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -2301,7 +2301,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "{r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -2319,7 +2319,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "cat_strings_joinStr_test.flux",
-														Source: "_value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -2337,7 +2337,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "cat_strings_joinStr_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -2358,7 +2358,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "cat_strings_joinStr_test.flux",
-																Source: "arr: [r._value, \"PLUS\"], v: \"\"",
+																Source: "",
 																Start: ast.Position{
 																	Column: 60,
 																	Line:   38,
@@ -2376,7 +2376,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "cat_strings_joinStr_test.flux",
-																	Source: "arr: [r._value, \"PLUS\"]",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 60,
 																		Line:   38,
@@ -2394,7 +2394,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "cat_strings_joinStr_test.flux",
-																		Source: "arr",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 60,
 																			Line:   38,
@@ -2414,7 +2414,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "cat_strings_joinStr_test.flux",
-																		Source: "[r._value, \"PLUS\"]",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 65,
 																			Line:   38,
@@ -2431,7 +2431,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "cat_strings_joinStr_test.flux",
-																			Source: "r._value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 66,
 																				Line:   38,
@@ -2449,7 +2449,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "cat_strings_joinStr_test.flux",
-																				Source: "r",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 66,
 																					Line:   38,
@@ -2468,7 +2468,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "cat_strings_joinStr_test.flux",
-																				Source: "_value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 68,
 																					Line:   38,
@@ -2488,7 +2488,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "cat_strings_joinStr_test.flux",
-																			Source: "\"PLUS\"",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 76,
 																				Line:   38,
@@ -2510,7 +2510,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "cat_strings_joinStr_test.flux",
-																	Source: "v: \"\"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 85,
 																		Line:   38,
@@ -2528,7 +2528,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "cat_strings_joinStr_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 85,
 																			Line:   38,
@@ -2548,7 +2548,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "cat_strings_joinStr_test.flux",
-																		Source: "\"\"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 88,
 																			Line:   38,
@@ -2570,7 +2570,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "cat_strings_joinStr_test.flux",
-															Source: "strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -2587,7 +2587,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "cat_strings_joinStr_test.flux",
-																Source: "strings.joinStr",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -2605,7 +2605,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "cat_strings_joinStr_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -2624,7 +2624,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "cat_strings_joinStr_test.flux",
-																	Source: "joinStr",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -2650,7 +2650,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "cat_strings_joinStr_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -2674,7 +2674,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -2692,7 +2692,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -2719,7 +2719,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "cat_strings_joinStr_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.joinStr(arr: [r._value, \"PLUS\"], v: \"\")}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -2736,7 +2736,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "cat_strings_joinStr_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -2760,7 +2760,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "cat_strings_joinStr_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   35,
@@ -2778,7 +2778,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "cat_strings_joinStr_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   35,
@@ -2797,7 +2797,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "cat_strings_joinStr_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 27,
 								Line:   35,
@@ -2818,7 +2818,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "_string_joinStr = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_joinStr})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -2835,7 +2835,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "cat_strings_joinStr_test.flux",
-							Source: "_string_joinStr",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -2855,7 +2855,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "cat_strings_joinStr_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_joinStr})",
+							Source: "",
 							Start: ast.Position{
 								Column: 24,
 								Line:   40,
@@ -2872,7 +2872,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "cat_strings_joinStr_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_joinStr})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -2889,7 +2889,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "cat_strings_joinStr_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_joinStr}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -2907,7 +2907,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "cat_strings_joinStr_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -2925,7 +2925,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -2946,7 +2946,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -2964,7 +2964,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -2982,7 +2982,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "cat_strings_joinStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -3002,7 +3002,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "cat_strings_joinStr_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -3024,7 +3024,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -3041,7 +3041,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -3059,7 +3059,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -3078,7 +3078,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -3102,7 +3102,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "cat_strings_joinStr_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -3120,7 +3120,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -3141,7 +3141,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -3159,7 +3159,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -3177,7 +3177,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "cat_strings_joinStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -3197,7 +3197,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "cat_strings_joinStr_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -3219,7 +3219,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -3236,7 +3236,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "cat_strings_joinStr_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -3254,7 +3254,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -3273,7 +3273,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "cat_strings_joinStr_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -3297,7 +3297,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "cat_strings_joinStr_test.flux",
-										Source: "fn: t_string_joinStr",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -3315,7 +3315,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -3335,7 +3335,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "cat_strings_joinStr_test.flux",
-											Source: "t_string_joinStr",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -3365,7 +3365,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "test _string_joinStr = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_joinStr})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -3385,7 +3385,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -3402,7 +3402,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -3422,7 +3422,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -3439,7 +3439,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -3461,7 +3461,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "cat_strings_joinStr_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -3478,7 +3478,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "cat_strings_joinStr_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -3498,7 +3498,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "center_strings_joinStr_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z, a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z, k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z, b ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z, 2COTDe ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z, cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z, 13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_center = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time}))\n\ntest _string_center = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_center})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -3516,7 +3516,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -3533,7 +3533,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "center_strings_joinStr_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -3553,7 +3553,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "center_strings_joinStr_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -3570,7 +3570,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "center_strings_joinStr_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -3593,7 +3593,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -3610,7 +3610,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -3627,7 +3627,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -3646,7 +3646,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -3665,7 +3665,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z, a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z, k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z, b ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z, 2COTDe ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z, cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z, 13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -3682,7 +3682,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -3701,7 +3701,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z, a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z, k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z, b ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z, 2COTDe ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z, cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z, 13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -3720,7 +3720,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "t_string_center = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -3737,7 +3737,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "t_string_center",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -3757,7 +3757,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 19,
 							Line:   35,
@@ -3776,7 +3776,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "center_strings_joinStr_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -3794,7 +3794,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "center_strings_joinStr_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -3812,7 +3812,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "center_strings_joinStr_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -3830,7 +3830,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -3848,7 +3848,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -3868,7 +3868,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -3890,7 +3890,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "center_strings_joinStr_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -3907,7 +3907,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "center_strings_joinStr_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -3929,7 +3929,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "center_strings_joinStr_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -3947,7 +3947,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "center_strings_joinStr_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -3965,7 +3965,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "center_strings_joinStr_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -3983,7 +3983,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -4004,7 +4004,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "(r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -4021,7 +4021,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -4038,7 +4038,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "{r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -4056,7 +4056,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "center_strings_joinStr_test.flux",
-														Source: "_value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\")",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -4074,7 +4074,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "center_strings_joinStr_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -4095,7 +4095,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "center_strings_joinStr_test.flux",
-																Source: "arr: [\" \", r._value, \" \"], v: \"\"",
+																Source: "",
 																Start: ast.Position{
 																	Column: 60,
 																	Line:   38,
@@ -4113,7 +4113,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "center_strings_joinStr_test.flux",
-																	Source: "arr: [\" \", r._value, \" \"]",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 60,
 																		Line:   38,
@@ -4131,7 +4131,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "center_strings_joinStr_test.flux",
-																		Source: "arr",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 60,
 																			Line:   38,
@@ -4151,7 +4151,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "center_strings_joinStr_test.flux",
-																		Source: "[\" \", r._value, \" \"]",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 65,
 																			Line:   38,
@@ -4168,7 +4168,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "center_strings_joinStr_test.flux",
-																			Source: "\" \"",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 66,
 																				Line:   38,
@@ -4186,7 +4186,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "center_strings_joinStr_test.flux",
-																			Source: "r._value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 71,
 																				Line:   38,
@@ -4204,7 +4204,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "center_strings_joinStr_test.flux",
-																				Source: "r",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 71,
 																					Line:   38,
@@ -4223,7 +4223,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "center_strings_joinStr_test.flux",
-																				Source: "_value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 73,
 																					Line:   38,
@@ -4243,7 +4243,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "center_strings_joinStr_test.flux",
-																			Source: "\" \"",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 81,
 																				Line:   38,
@@ -4265,7 +4265,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "center_strings_joinStr_test.flux",
-																	Source: "v: \"\"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 87,
 																		Line:   38,
@@ -4283,7 +4283,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "center_strings_joinStr_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 87,
 																			Line:   38,
@@ -4303,7 +4303,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "center_strings_joinStr_test.flux",
-																		Source: "\"\"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 90,
 																			Line:   38,
@@ -4325,7 +4325,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "center_strings_joinStr_test.flux",
-															Source: "strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\")",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -4342,7 +4342,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "center_strings_joinStr_test.flux",
-																Source: "strings.joinStr",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -4360,7 +4360,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "center_strings_joinStr_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -4379,7 +4379,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "center_strings_joinStr_test.flux",
-																	Source: "joinStr",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -4403,7 +4403,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "center_strings_joinStr_test.flux",
-														Source: "_time: r._time",
+														Source: "",
 														Start: ast.Position{
 															Column: 95,
 															Line:   38,
@@ -4421,7 +4421,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "center_strings_joinStr_test.flux",
-															Source: "_time",
+															Source: "",
 															Start: ast.Position{
 																Column: 95,
 																Line:   38,
@@ -4441,7 +4441,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "center_strings_joinStr_test.flux",
-															Source: "r._time",
+															Source: "",
 															Start: ast.Position{
 																Column: 102,
 																Line:   38,
@@ -4459,7 +4459,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "center_strings_joinStr_test.flux",
-																Source: "r",
+																Source: "",
 																Start: ast.Position{
 																	Column: 102,
 																	Line:   38,
@@ -4478,7 +4478,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "center_strings_joinStr_test.flux",
-																Source: "_time",
+																Source: "",
 																Start: ast.Position{
 																	Column: 104,
 																	Line:   38,
@@ -4501,7 +4501,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "center_strings_joinStr_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -4525,7 +4525,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -4543,7 +4543,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -4570,7 +4570,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "center_strings_joinStr_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value, \" \"], v: \"\"), _time: r._time}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -4587,7 +4587,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "center_strings_joinStr_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -4611,7 +4611,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "center_strings_joinStr_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 20,
 								Line:   35,
@@ -4629,7 +4629,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "center_strings_joinStr_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   35,
@@ -4648,7 +4648,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "center_strings_joinStr_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 26,
 								Line:   35,
@@ -4669,7 +4669,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "_string_center = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_center})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -4686,7 +4686,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "center_strings_joinStr_test.flux",
-							Source: "_string_center",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -4706,7 +4706,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "center_strings_joinStr_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_center})",
+							Source: "",
 							Start: ast.Position{
 								Column: 23,
 								Line:   40,
@@ -4723,7 +4723,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "center_strings_joinStr_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_center})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -4740,7 +4740,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "center_strings_joinStr_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_center}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -4758,7 +4758,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "center_strings_joinStr_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -4776,7 +4776,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -4797,7 +4797,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -4815,7 +4815,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -4833,7 +4833,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "center_strings_joinStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -4853,7 +4853,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "center_strings_joinStr_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -4875,7 +4875,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -4892,7 +4892,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -4910,7 +4910,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -4929,7 +4929,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -4953,7 +4953,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "center_strings_joinStr_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -4971,7 +4971,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -4992,7 +4992,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -5010,7 +5010,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -5028,7 +5028,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "center_strings_joinStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -5048,7 +5048,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "center_strings_joinStr_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -5070,7 +5070,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -5087,7 +5087,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "center_strings_joinStr_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -5105,7 +5105,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -5124,7 +5124,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "center_strings_joinStr_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -5148,7 +5148,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "center_strings_joinStr_test.flux",
-										Source: "fn: t_string_center",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -5166,7 +5166,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -5186,7 +5186,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "center_strings_joinStr_test.flux",
-											Source: "t_string_center",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -5216,7 +5216,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "test _string_center = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_center})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -5236,7 +5236,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -5253,7 +5253,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -5273,7 +5273,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -5290,7 +5290,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -5312,7 +5312,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "center_strings_joinStr_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -5329,7 +5329,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "center_strings_joinStr_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -5349,7 +5349,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   48,
 				},
 				File:   "contains_filter_by_regex_match_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"regexp\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,long,string,string,string,string\n#group,false,false,false,false,true,true,true,true\n#default,_result,,,,,,,\n,result,table,_time,_value,_field,_measurement,host,name\n,,0,2018-05-22T19:53:26Z,15204688,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:36Z,15204894,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:46Z,15205102,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:56Z,15205226,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:54:06Z,15205499,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:54:16Z,15205755,io_time,diskio,host.local,disk0\n,,1,2018-05-22T19:53:26Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:36Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:46Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:56Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:54:06Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:54:16Z,648,io_time,diskio,host.local,disk2\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,long,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,host,name\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,15204688,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,15204894,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,15205102,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,15205226,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,15205499,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,15205755,io_time,diskio,host.local,disk0\n\"\nre = regexp.compile(v: \".*0\")\nt_filter_by_regex = (table=<-) =>\n    table\n        |> range(start: 2018-05-20T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: r.name))\n\ntest _filter_by_regex = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_filter_by_regex})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -5367,7 +5367,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -5384,7 +5384,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -5404,7 +5404,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -5421,7 +5421,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -5444,7 +5444,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -5461,7 +5461,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   27,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,long,string,string,string,string\n#group,false,false,false,false,true,true,true,true\n#default,_result,,,,,,,\n,result,table,_time,_value,_field,_measurement,host,name\n,,0,2018-05-22T19:53:26Z,15204688,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:36Z,15204894,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:46Z,15205102,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:56Z,15205226,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:54:06Z,15205499,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:54:16Z,15205755,io_time,diskio,host.local,disk0\n,,1,2018-05-22T19:53:26Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:36Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:46Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:56Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:54:06Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:54:16Z,648,io_time,diskio,host.local,disk2\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -5478,7 +5478,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -5497,7 +5497,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   27,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,long,string,string,string,string\n#group,false,false,false,false,true,true,true,true\n#default,_result,,,,,,,\n,result,table,_time,_value,_field,_measurement,host,name\n,,0,2018-05-22T19:53:26Z,15204688,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:36Z,15204894,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:46Z,15205102,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:53:56Z,15205226,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:54:06Z,15205499,io_time,diskio,host.local,disk0\n,,0,2018-05-22T19:54:16Z,15205755,io_time,diskio,host.local,disk0\n,,1,2018-05-22T19:53:26Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:36Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:46Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:53:56Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:54:06Z,648,io_time,diskio,host.local,disk2\n,,1,2018-05-22T19:54:16Z,648,io_time,diskio,host.local,disk2\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -5516,7 +5516,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   40,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,long,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,host,name\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,15204688,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,15204894,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,15205102,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,15205226,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,15205499,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,15205755,io_time,diskio,host.local,disk0\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   28,
@@ -5533,7 +5533,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   28,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   28,
@@ -5552,7 +5552,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   40,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,long,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,host,name\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,15204688,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,15204894,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,15205102,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,15205226,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,15205499,io_time,diskio,host.local,disk0\n,,0,2018-05-20T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,15205755,io_time,diskio,host.local,disk0\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   29,
@@ -5571,7 +5571,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "re = regexp.compile(v: \".*0\")",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   41,
@@ -5588,7 +5588,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "re",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   41,
@@ -5608,7 +5608,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "v: \".*0\"",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   41,
@@ -5626,7 +5626,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "v: \".*0\"",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   41,
@@ -5644,7 +5644,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "contains_filter_by_regex_match_test.flux",
-									Source: "v",
+									Source: "",
 									Start: ast.Position{
 										Column: 21,
 										Line:   41,
@@ -5664,7 +5664,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "contains_filter_by_regex_match_test.flux",
-									Source: "\".*0\"",
+									Source: "",
 									Start: ast.Position{
 										Column: 24,
 										Line:   41,
@@ -5686,7 +5686,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "regexp.compile(v: \".*0\")",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   41,
@@ -5703,7 +5703,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "regexp.compile",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   41,
@@ -5721,7 +5721,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "regexp",
+								Source: "",
 								Start: ast.Position{
 									Column: 6,
 									Line:   41,
@@ -5740,7 +5740,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "compile",
+								Source: "",
 								Start: ast.Position{
 									Column: 13,
 									Line:   41,
@@ -5764,7 +5764,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   45,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "t_filter_by_regex = (table=<-) =>\n    table\n        |> range(start: 2018-05-20T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: r.name))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   42,
@@ -5781,7 +5781,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   42,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "t_filter_by_regex",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   42,
@@ -5801,7 +5801,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   45,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-20T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: r.name))",
+						Source: "",
 						Start: ast.Position{
 							Column: 21,
 							Line:   42,
@@ -5820,7 +5820,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   43,
 									},
 									File:   "contains_filter_by_regex_match_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   43,
@@ -5838,7 +5838,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   44,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "table\n        |> range(start: 2018-05-20T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   43,
@@ -5856,7 +5856,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   44,
 										},
 										File:   "contains_filter_by_regex_match_test.flux",
-										Source: "start: 2018-05-20T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   44,
@@ -5874,7 +5874,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   44,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "start: 2018-05-20T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   44,
@@ -5892,7 +5892,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   44,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   44,
@@ -5912,7 +5912,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   44,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "2018-05-20T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   44,
@@ -5934,7 +5934,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   44,
 									},
 									File:   "contains_filter_by_regex_match_test.flux",
-									Source: "range(start: 2018-05-20T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   44,
@@ -5951,7 +5951,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   44,
 										},
 										File:   "contains_filter_by_regex_match_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   44,
@@ -5973,7 +5973,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   45,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "table\n        |> range(start: 2018-05-20T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: r.name))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   43,
@@ -5991,7 +5991,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   45,
 									},
 									File:   "contains_filter_by_regex_match_test.flux",
-									Source: "fn: (r) => regexp.matchRegexpString(r: re, v: r.name)",
+									Source: "",
 									Start: ast.Position{
 										Column: 19,
 										Line:   45,
@@ -6009,7 +6009,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   45,
 										},
 										File:   "contains_filter_by_regex_match_test.flux",
-										Source: "fn: (r) => regexp.matchRegexpString(r: re, v: r.name)",
+										Source: "",
 										Start: ast.Position{
 											Column: 19,
 											Line:   45,
@@ -6027,7 +6027,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   45,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 19,
 												Line:   45,
@@ -6048,7 +6048,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   45,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "(r) => regexp.matchRegexpString(r: re, v: r.name)",
+											Source: "",
 											Start: ast.Position{
 												Column: 23,
 												Line:   45,
@@ -6066,7 +6066,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   45,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "r: re, v: r.name",
+													Source: "",
 													Start: ast.Position{
 														Column: 55,
 														Line:   45,
@@ -6084,7 +6084,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   45,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "r: re",
+														Source: "",
 														Start: ast.Position{
 															Column: 55,
 															Line:   45,
@@ -6102,7 +6102,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   45,
 															},
 															File:   "contains_filter_by_regex_match_test.flux",
-															Source: "r",
+															Source: "",
 															Start: ast.Position{
 																Column: 55,
 																Line:   45,
@@ -6122,7 +6122,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   45,
 															},
 															File:   "contains_filter_by_regex_match_test.flux",
-															Source: "re",
+															Source: "",
 															Start: ast.Position{
 																Column: 58,
 																Line:   45,
@@ -6141,7 +6141,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   45,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "v: r.name",
+														Source: "",
 														Start: ast.Position{
 															Column: 62,
 															Line:   45,
@@ -6159,7 +6159,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   45,
 															},
 															File:   "contains_filter_by_regex_match_test.flux",
-															Source: "v",
+															Source: "",
 															Start: ast.Position{
 																Column: 62,
 																Line:   45,
@@ -6179,7 +6179,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   45,
 															},
 															File:   "contains_filter_by_regex_match_test.flux",
-															Source: "r.name",
+															Source: "",
 															Start: ast.Position{
 																Column: 65,
 																Line:   45,
@@ -6197,7 +6197,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   45,
 																},
 																File:   "contains_filter_by_regex_match_test.flux",
-																Source: "r",
+																Source: "",
 																Start: ast.Position{
 																	Column: 65,
 																	Line:   45,
@@ -6216,7 +6216,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   45,
 																},
 																File:   "contains_filter_by_regex_match_test.flux",
-																Source: "name",
+																Source: "",
 																Start: ast.Position{
 																	Column: 67,
 																	Line:   45,
@@ -6240,7 +6240,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   45,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "regexp.matchRegexpString(r: re, v: r.name)",
+												Source: "",
 												Start: ast.Position{
 													Column: 30,
 													Line:   45,
@@ -6257,7 +6257,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   45,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "regexp.matchRegexpString",
+													Source: "",
 													Start: ast.Position{
 														Column: 30,
 														Line:   45,
@@ -6275,7 +6275,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   45,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "regexp",
+														Source: "",
 														Start: ast.Position{
 															Column: 30,
 															Line:   45,
@@ -6294,7 +6294,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   45,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "matchRegexpString",
+														Source: "",
 														Start: ast.Position{
 															Column: 37,
 															Line:   45,
@@ -6319,7 +6319,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   45,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 24,
 													Line:   45,
@@ -6337,7 +6337,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   45,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 24,
 														Line:   45,
@@ -6364,7 +6364,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   45,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "filter(fn: (r) => regexp.matchRegexpString(r: re, v: r.name))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   45,
@@ -6381,7 +6381,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   45,
 									},
 									File:   "contains_filter_by_regex_match_test.flux",
-									Source: "filter",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   45,
@@ -6405,7 +6405,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   42,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 22,
 								Line:   42,
@@ -6423,7 +6423,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   42,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 22,
 									Line:   42,
@@ -6442,7 +6442,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   42,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 28,
 								Line:   42,
@@ -6463,7 +6463,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   48,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "_filter_by_regex = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_filter_by_regex})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   47,
@@ -6480,7 +6480,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   47,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "_filter_by_regex",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   47,
@@ -6500,7 +6500,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   48,
 							},
 							File:   "contains_filter_by_regex_match_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_filter_by_regex})",
+							Source: "",
 							Start: ast.Position{
 								Column: 25,
 								Line:   47,
@@ -6517,7 +6517,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   48,
 								},
 								File:   "contains_filter_by_regex_match_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_filter_by_regex})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   48,
@@ -6534,7 +6534,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   48,
 									},
 									File:   "contains_filter_by_regex_match_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_filter_by_regex}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   48,
@@ -6552,7 +6552,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   48,
 										},
 										File:   "contains_filter_by_regex_match_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   48,
@@ -6570,7 +6570,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   48,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   48,
@@ -6591,7 +6591,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   48,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   48,
@@ -6609,7 +6609,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   48,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   48,
@@ -6627,7 +6627,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   48,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   48,
@@ -6647,7 +6647,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   48,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   48,
@@ -6669,7 +6669,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   48,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   48,
@@ -6686,7 +6686,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   48,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   48,
@@ -6704,7 +6704,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   48,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   48,
@@ -6723,7 +6723,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   48,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   48,
@@ -6747,7 +6747,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   48,
 										},
 										File:   "contains_filter_by_regex_match_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   48,
@@ -6765,7 +6765,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   48,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   48,
@@ -6786,7 +6786,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   48,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   48,
@@ -6804,7 +6804,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   48,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   48,
@@ -6822,7 +6822,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   48,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   48,
@@ -6842,7 +6842,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   48,
 														},
 														File:   "contains_filter_by_regex_match_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   48,
@@ -6864,7 +6864,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   48,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   48,
@@ -6881,7 +6881,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   48,
 												},
 												File:   "contains_filter_by_regex_match_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   48,
@@ -6899,7 +6899,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   48,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   48,
@@ -6918,7 +6918,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   48,
 													},
 													File:   "contains_filter_by_regex_match_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   48,
@@ -6942,7 +6942,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   48,
 										},
 										File:   "contains_filter_by_regex_match_test.flux",
-										Source: "fn: t_filter_by_regex",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   48,
@@ -6960,7 +6960,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   48,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   48,
@@ -6980,7 +6980,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   48,
 											},
 											File:   "contains_filter_by_regex_match_test.flux",
-											Source: "t_filter_by_regex",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   48,
@@ -7010,7 +7010,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   48,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "test _filter_by_regex = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_filter_by_regex})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   47,
@@ -7030,7 +7030,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -7047,7 +7047,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -7067,7 +7067,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "import \"regexp\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -7084,7 +7084,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "\"regexp\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -7106,7 +7106,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "contains_filter_by_regex_match_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -7123,7 +7123,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "contains_filter_by_regex_match_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -7143,7 +7143,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   42,
 				},
 				File:   "count_string_countStr_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\nimport \"regexp\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,long\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,count\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,0\n\"\nt_string_count = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")}))\n\ntest _string_count = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_count})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -7161,7 +7161,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   8,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   8,
@@ -7178,7 +7178,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "count_string_countStr_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   8,
@@ -7198,7 +7198,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "count_string_countStr_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   8,
@@ -7215,7 +7215,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   8,
 								},
 								File:   "count_string_countStr_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   8,
@@ -7238,7 +7238,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   8,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   8,
@@ -7255,7 +7255,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   22,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   10,
@@ -7272,7 +7272,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   10,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   10,
@@ -7291,7 +7291,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   11,
@@ -7310,7 +7310,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   35,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,long\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,count\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,0\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   23,
@@ -7327,7 +7327,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   23,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   23,
@@ -7346,7 +7346,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,long\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,count\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,0\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   24,
@@ -7365,7 +7365,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   39,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "t_string_count = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   36,
@@ -7382,7 +7382,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   36,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "t_string_count",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   36,
@@ -7402,7 +7402,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   39,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 18,
 							Line:   36,
@@ -7421,7 +7421,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "count_string_countStr_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   37,
@@ -7439,7 +7439,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "count_string_countStr_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   37,
@@ -7457,7 +7457,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "count_string_countStr_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   38,
@@ -7475,7 +7475,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   38,
@@ -7493,7 +7493,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   38,
@@ -7513,7 +7513,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   38,
@@ -7535,7 +7535,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "count_string_countStr_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -7552,7 +7552,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "count_string_countStr_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   38,
@@ -7574,7 +7574,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   39,
 							},
 							File:   "count_string_countStr_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   37,
@@ -7592,7 +7592,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   39,
 									},
 									File:   "count_string_countStr_test.flux",
-									Source: "fn: (r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   39,
@@ -7610,7 +7610,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   39,
 										},
 										File:   "count_string_countStr_test.flux",
-										Source: "fn: (r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   39,
@@ -7628,7 +7628,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   39,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   39,
@@ -7649,7 +7649,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   39,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "(r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   39,
@@ -7666,7 +7666,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "({r with count: strings.countStr(v: r._value, substr: \"n\")})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   39,
@@ -7683,7 +7683,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   39,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "{r with count: strings.countStr(v: r._value, substr: \"n\")}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   39,
@@ -7701,7 +7701,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   39,
 														},
 														File:   "count_string_countStr_test.flux",
-														Source: "count: strings.countStr(v: r._value, substr: \"n\")",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   39,
@@ -7719,7 +7719,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   39,
 															},
 															File:   "count_string_countStr_test.flux",
-															Source: "count",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   39,
@@ -7740,7 +7740,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   39,
 																},
 																File:   "count_string_countStr_test.flux",
-																Source: "v: r._value, substr: \"n\"",
+																Source: "",
 																Start: ast.Position{
 																	Column: 60,
 																	Line:   39,
@@ -7758,7 +7758,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "count_string_countStr_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 60,
 																		Line:   39,
@@ -7776,7 +7776,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "count_string_countStr_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 60,
 																			Line:   39,
@@ -7796,7 +7796,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "count_string_countStr_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 63,
 																			Line:   39,
@@ -7814,7 +7814,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   39,
 																			},
 																			File:   "count_string_countStr_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 63,
 																				Line:   39,
@@ -7833,7 +7833,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   39,
 																			},
 																			File:   "count_string_countStr_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 65,
 																				Line:   39,
@@ -7854,7 +7854,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "count_string_countStr_test.flux",
-																	Source: "substr: \"n\"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 73,
 																		Line:   39,
@@ -7872,7 +7872,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "count_string_countStr_test.flux",
-																		Source: "substr",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 73,
 																			Line:   39,
@@ -7892,7 +7892,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "count_string_countStr_test.flux",
-																		Source: "\"n\"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 81,
 																			Line:   39,
@@ -7914,7 +7914,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   39,
 															},
 															File:   "count_string_countStr_test.flux",
-															Source: "strings.countStr(v: r._value, substr: \"n\")",
+															Source: "",
 															Start: ast.Position{
 																Column: 43,
 																Line:   39,
@@ -7931,7 +7931,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   39,
 																},
 																File:   "count_string_countStr_test.flux",
-																Source: "strings.countStr",
+																Source: "",
 																Start: ast.Position{
 																	Column: 43,
 																	Line:   39,
@@ -7949,7 +7949,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "count_string_countStr_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 43,
 																		Line:   39,
@@ -7968,7 +7968,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "count_string_countStr_test.flux",
-																	Source: "countStr",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 51,
 																		Line:   39,
@@ -7994,7 +7994,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   39,
 														},
 														File:   "count_string_countStr_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   39,
@@ -8018,7 +8018,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   39,
@@ -8036,7 +8036,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   39,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   39,
@@ -8063,7 +8063,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   39,
 								},
 								File:   "count_string_countStr_test.flux",
-								Source: "map(fn: (r) => ({r with count: strings.countStr(v: r._value, substr: \"n\")}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   39,
@@ -8080,7 +8080,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   39,
 									},
 									File:   "count_string_countStr_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   39,
@@ -8104,7 +8104,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   36,
 							},
 							File:   "count_string_countStr_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 19,
 								Line:   36,
@@ -8122,7 +8122,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "count_string_countStr_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 19,
 									Line:   36,
@@ -8141,7 +8141,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   36,
 							},
 							File:   "count_string_countStr_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 25,
 								Line:   36,
@@ -8162,7 +8162,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   42,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "_string_count = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_count})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   41,
@@ -8179,7 +8179,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "count_string_countStr_test.flux",
-							Source: "_string_count",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   41,
@@ -8199,7 +8199,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   42,
 							},
 							File:   "count_string_countStr_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_count})",
+							Source: "",
 							Start: ast.Position{
 								Column: 22,
 								Line:   41,
@@ -8216,7 +8216,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   42,
 								},
 								File:   "count_string_countStr_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_count})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   42,
@@ -8233,7 +8233,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   42,
 									},
 									File:   "count_string_countStr_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_count}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   42,
@@ -8251,7 +8251,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   42,
 										},
 										File:   "count_string_countStr_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   42,
@@ -8269,7 +8269,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   42,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   42,
@@ -8290,7 +8290,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   42,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   42,
@@ -8308,7 +8308,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   42,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   42,
@@ -8326,7 +8326,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   42,
 														},
 														File:   "count_string_countStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   42,
@@ -8346,7 +8346,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   42,
 														},
 														File:   "count_string_countStr_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   42,
@@ -8368,7 +8368,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   42,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   42,
@@ -8385,7 +8385,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   42,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   42,
@@ -8403,7 +8403,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   42,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   42,
@@ -8422,7 +8422,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   42,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   42,
@@ -8446,7 +8446,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   42,
 										},
 										File:   "count_string_countStr_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   42,
@@ -8464,7 +8464,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   42,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   42,
@@ -8485,7 +8485,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   42,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   42,
@@ -8503,7 +8503,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   42,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   42,
@@ -8521,7 +8521,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   42,
 														},
 														File:   "count_string_countStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   42,
@@ -8541,7 +8541,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   42,
 														},
 														File:   "count_string_countStr_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   42,
@@ -8563,7 +8563,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   42,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   42,
@@ -8580,7 +8580,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   42,
 												},
 												File:   "count_string_countStr_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   42,
@@ -8598,7 +8598,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   42,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   42,
@@ -8617,7 +8617,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   42,
 													},
 													File:   "count_string_countStr_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   42,
@@ -8641,7 +8641,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   42,
 										},
 										File:   "count_string_countStr_test.flux",
-										Source: "fn: t_string_count",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   42,
@@ -8659,7 +8659,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   42,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   42,
@@ -8679,7 +8679,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   42,
 											},
 											File:   "count_string_countStr_test.flux",
-											Source: "t_string_count",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   42,
@@ -8709,7 +8709,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   42,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "test _string_count = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_count})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   41,
@@ -8729,7 +8729,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -8746,7 +8746,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -8766,7 +8766,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -8783,7 +8783,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -8803,7 +8803,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   6,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "import \"regexp\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   6,
@@ -8820,7 +8820,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   6,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "\"regexp\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   6,
@@ -8842,7 +8842,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "count_string_countStr_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -8859,7 +8859,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "count_string_countStr_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -8879,7 +8879,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   51,
 				},
 				File:   "endswith_strings_regexp_hasSuffix_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\nimport \"regexp\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"\nre = regexp.compile(v: \" \")\nt_string_regexp_hasSuffix = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(\n            fn: (r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                ),\n        )\n\ntest _string_regexp_hasSuffix = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasSuffix})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -8897,7 +8897,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   8,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   8,
@@ -8914,7 +8914,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   8,
@@ -8934,7 +8934,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   8,
@@ -8951,7 +8951,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   8,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   8,
@@ -8974,7 +8974,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   8,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   8,
@@ -8991,7 +8991,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   22,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   10,
@@ -9008,7 +9008,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   10,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   10,
@@ -9027,7 +9027,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   11,
@@ -9046,7 +9046,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   32,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   23,
@@ -9063,7 +9063,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   23,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   23,
@@ -9082,7 +9082,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   32,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2 ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   24,
@@ -9101,7 +9101,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   33,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "re = regexp.compile(v: \" \")",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   33,
@@ -9118,7 +9118,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   33,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "re",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   33,
@@ -9138,7 +9138,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   33,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "v: \" \"",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   33,
@@ -9156,7 +9156,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   33,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "v: \" \"",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   33,
@@ -9174,7 +9174,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   33,
 									},
 									File:   "endswith_strings_regexp_hasSuffix_test.flux",
-									Source: "v",
+									Source: "",
 									Start: ast.Position{
 										Column: 21,
 										Line:   33,
@@ -9194,7 +9194,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   33,
 									},
 									File:   "endswith_strings_regexp_hasSuffix_test.flux",
-									Source: "\" \"",
+									Source: "",
 									Start: ast.Position{
 										Column: 24,
 										Line:   33,
@@ -9216,7 +9216,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   33,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "regexp.compile(v: \" \")",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   33,
@@ -9233,7 +9233,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   33,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "regexp.compile",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   33,
@@ -9251,7 +9251,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   33,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "regexp",
+								Source: "",
 								Start: ast.Position{
 									Column: 6,
 									Line:   33,
@@ -9270,7 +9270,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   33,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "compile",
+								Source: "",
 								Start: ast.Position{
 									Column: 13,
 									Line:   33,
@@ -9294,7 +9294,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   48,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "t_string_regexp_hasSuffix = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(\n            fn: (r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                ),\n        )",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   34,
@@ -9311,7 +9311,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "t_string_regexp_hasSuffix",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   34,
@@ -9331,7 +9331,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   48,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(\n            fn: (r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                ),\n        )",
+						Source: "",
 						Start: ast.Position{
 							Column: 29,
 							Line:   34,
@@ -9350,7 +9350,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   35,
 									},
 									File:   "endswith_strings_regexp_hasSuffix_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   35,
@@ -9368,7 +9368,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   35,
@@ -9386,7 +9386,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   36,
 										},
 										File:   "endswith_strings_regexp_hasSuffix_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   36,
@@ -9404,7 +9404,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   36,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   36,
@@ -9422,7 +9422,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   36,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   36,
@@ -9442,7 +9442,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   36,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   36,
@@ -9464,7 +9464,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "endswith_strings_regexp_hasSuffix_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   36,
@@ -9481,7 +9481,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   36,
 										},
 										File:   "endswith_strings_regexp_hasSuffix_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   36,
@@ -9503,7 +9503,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   48,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(\n            fn: (r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                ),\n        )",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   35,
@@ -9521,7 +9521,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   47,
 									},
 									File:   "endswith_strings_regexp_hasSuffix_test.flux",
-									Source: "fn: (r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                )",
+									Source: "",
 									Start: ast.Position{
 										Column: 13,
 										Line:   38,
@@ -9539,7 +9539,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   47,
 										},
 										File:   "endswith_strings_regexp_hasSuffix_test.flux",
-										Source: "fn: (r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                )",
+										Source: "",
 										Start: ast.Position{
 											Column: 13,
 											Line:   38,
@@ -9557,7 +9557,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 13,
 												Line:   38,
@@ -9578,7 +9578,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   47,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "(r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                )",
+											Source: "",
 											Start: ast.Position{
 												Column: 17,
 												Line:   38,
@@ -9596,7 +9596,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   46,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        )",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   40,
@@ -9614,7 +9614,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   40,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "r: re",
+														Source: "",
 														Start: ast.Position{
 															Column: 21,
 															Line:   40,
@@ -9632,7 +9632,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   40,
 															},
 															File:   "endswith_strings_regexp_hasSuffix_test.flux",
-															Source: "r",
+															Source: "",
 															Start: ast.Position{
 																Column: 21,
 																Line:   40,
@@ -9652,7 +9652,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   40,
 															},
 															File:   "endswith_strings_regexp_hasSuffix_test.flux",
-															Source: "re",
+															Source: "",
 															Start: ast.Position{
 																Column: 24,
 																Line:   40,
@@ -9671,7 +9671,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   46,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        )",
+														Source: "",
 														Start: ast.Position{
 															Column: 21,
 															Line:   41,
@@ -9689,7 +9689,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   41,
 															},
 															File:   "endswith_strings_regexp_hasSuffix_test.flux",
-															Source: "v",
+															Source: "",
 															Start: ast.Position{
 																Column: 21,
 																Line:   41,
@@ -9710,7 +9710,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   45,
 																},
 																File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																Source: "v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value)",
+																Source: "",
 																Start: ast.Position{
 																	Column: 29,
 																	Line:   43,
@@ -9728,7 +9728,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   43,
 																	},
 																	File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 29,
 																		Line:   43,
@@ -9746,7 +9746,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   43,
 																		},
 																		File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 29,
 																			Line:   43,
@@ -9766,7 +9766,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   43,
 																		},
 																		File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 32,
 																			Line:   43,
@@ -9784,7 +9784,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   43,
 																			},
 																			File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 32,
 																				Line:   43,
@@ -9803,7 +9803,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   43,
 																			},
 																			File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 34,
 																				Line:   43,
@@ -9824,7 +9824,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   44,
 																	},
 																	File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																	Source: "start: strings.strlen(v: r._value) - 1",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 29,
 																		Line:   44,
@@ -9842,7 +9842,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   44,
 																		},
 																		File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																		Source: "start",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 29,
 																			Line:   44,
@@ -9862,7 +9862,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   44,
 																		},
 																		File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																		Source: "strings.strlen(v: r._value) - 1",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 36,
 																			Line:   44,
@@ -9880,7 +9880,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   44,
 																				},
 																				File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																				Source: "v: r._value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 51,
 																					Line:   44,
@@ -9898,7 +9898,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   44,
 																					},
 																					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																					Source: "v: r._value",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 51,
 																						Line:   44,
@@ -9916,7 +9916,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																							Line:   44,
 																						},
 																						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																						Source: "v",
+																						Source: "",
 																						Start: ast.Position{
 																							Column: 51,
 																							Line:   44,
@@ -9936,7 +9936,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																							Line:   44,
 																						},
 																						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																						Source: "r._value",
+																						Source: "",
 																						Start: ast.Position{
 																							Column: 54,
 																							Line:   44,
@@ -9954,7 +9954,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																								Line:   44,
 																							},
 																							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																							Source: "r",
+																							Source: "",
 																							Start: ast.Position{
 																								Column: 54,
 																								Line:   44,
@@ -9973,7 +9973,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																								Line:   44,
 																							},
 																							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																							Source: "_value",
+																							Source: "",
 																							Start: ast.Position{
 																								Column: 56,
 																								Line:   44,
@@ -9997,7 +9997,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   44,
 																			},
 																			File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																			Source: "strings.strlen(v: r._value)",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 36,
 																				Line:   44,
@@ -10014,7 +10014,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   44,
 																				},
 																				File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																				Source: "strings.strlen",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 36,
 																					Line:   44,
@@ -10032,7 +10032,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   44,
 																					},
 																					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																					Source: "strings",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 36,
 																						Line:   44,
@@ -10051,7 +10051,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   44,
 																					},
 																					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																					Source: "strlen",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 44,
 																						Line:   44,
@@ -10076,7 +10076,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   44,
 																			},
 																			File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																			Source: "1",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 66,
 																				Line:   44,
@@ -10096,7 +10096,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   45,
 																	},
 																	File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																	Source: "end: strings.strlen(v: r._value)",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 29,
 																		Line:   45,
@@ -10114,7 +10114,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   45,
 																		},
 																		File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																		Source: "end",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 29,
 																			Line:   45,
@@ -10135,7 +10135,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   45,
 																			},
 																			File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																			Source: "v: r._value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 49,
 																				Line:   45,
@@ -10153,7 +10153,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   45,
 																				},
 																				File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																				Source: "v: r._value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 49,
 																					Line:   45,
@@ -10171,7 +10171,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   45,
 																					},
 																					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																					Source: "v",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 49,
 																						Line:   45,
@@ -10191,7 +10191,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   45,
 																					},
 																					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																					Source: "r._value",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 52,
 																						Line:   45,
@@ -10209,7 +10209,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																							Line:   45,
 																						},
 																						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																						Source: "r",
+																						Source: "",
 																						Start: ast.Position{
 																							Column: 52,
 																							Line:   45,
@@ -10228,7 +10228,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																							Line:   45,
 																						},
 																						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																						Source: "_value",
+																						Source: "",
 																						Start: ast.Position{
 																							Column: 54,
 																							Line:   45,
@@ -10252,7 +10252,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   45,
 																		},
 																		File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																		Source: "strings.strlen(v: r._value)",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 34,
 																			Line:   45,
@@ -10269,7 +10269,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   45,
 																			},
 																			File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																			Source: "strings.strlen",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 34,
 																				Line:   45,
@@ -10287,7 +10287,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   45,
 																				},
 																				File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																				Source: "strings",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 34,
 																					Line:   45,
@@ -10306,7 +10306,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   45,
 																				},
 																				File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																				Source: "strlen",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 42,
 																					Line:   45,
@@ -10333,7 +10333,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   46,
 															},
 															File:   "endswith_strings_regexp_hasSuffix_test.flux",
-															Source: "strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        )",
+															Source: "",
 															Start: ast.Position{
 																Column: 25,
 																Line:   42,
@@ -10350,7 +10350,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   42,
 																},
 																File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																Source: "strings.substring",
+																Source: "",
 																Start: ast.Position{
 																	Column: 25,
 																	Line:   42,
@@ -10368,7 +10368,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   42,
 																	},
 																	File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 25,
 																		Line:   42,
@@ -10387,7 +10387,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   42,
 																	},
 																	File:   "endswith_strings_regexp_hasSuffix_test.flux",
-																	Source: "substring",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 33,
 																		Line:   42,
@@ -10414,7 +10414,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   47,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                )",
+												Source: "",
 												Start: ast.Position{
 													Column: 17,
 													Line:   39,
@@ -10431,7 +10431,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   39,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "regexp.matchRegexpString",
+													Source: "",
 													Start: ast.Position{
 														Column: 17,
 														Line:   39,
@@ -10449,7 +10449,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   39,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "regexp",
+														Source: "",
 														Start: ast.Position{
 															Column: 17,
 															Line:   39,
@@ -10468,7 +10468,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   39,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "matchRegexpString",
+														Source: "",
 														Start: ast.Position{
 															Column: 24,
 															Line:   39,
@@ -10493,7 +10493,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   38,
@@ -10511,7 +10511,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 18,
 														Line:   38,
@@ -10538,7 +10538,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   48,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "filter(\n            fn: (r) =>\n                regexp.matchRegexpString(\n                    r: re,\n                    v:\n                        strings.substring(\n                            v: r._value,\n                            start: strings.strlen(v: r._value) - 1,\n                            end: strings.strlen(v: r._value),\n                        ),\n                ),\n        )",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   37,
@@ -10555,7 +10555,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "endswith_strings_regexp_hasSuffix_test.flux",
-									Source: "filter",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -10579,7 +10579,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   34,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 30,
 								Line:   34,
@@ -10597,7 +10597,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   34,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 30,
 									Line:   34,
@@ -10616,7 +10616,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   34,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 36,
 								Line:   34,
@@ -10637,7 +10637,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   51,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "_string_regexp_hasSuffix = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasSuffix})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   50,
@@ -10654,7 +10654,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   50,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "_string_regexp_hasSuffix",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   50,
@@ -10674,7 +10674,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   51,
 							},
 							File:   "endswith_strings_regexp_hasSuffix_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasSuffix})",
+							Source: "",
 							Start: ast.Position{
 								Column: 33,
 								Line:   50,
@@ -10691,7 +10691,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   51,
 								},
 								File:   "endswith_strings_regexp_hasSuffix_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasSuffix})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   51,
@@ -10708,7 +10708,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   51,
 									},
 									File:   "endswith_strings_regexp_hasSuffix_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasSuffix}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   51,
@@ -10726,7 +10726,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   51,
 										},
 										File:   "endswith_strings_regexp_hasSuffix_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   51,
@@ -10744,7 +10744,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   51,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   51,
@@ -10765,7 +10765,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   51,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   51,
@@ -10783,7 +10783,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   51,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   51,
@@ -10801,7 +10801,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   51,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   51,
@@ -10821,7 +10821,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   51,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   51,
@@ -10843,7 +10843,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   51,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   51,
@@ -10860,7 +10860,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   51,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   51,
@@ -10878,7 +10878,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   51,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   51,
@@ -10897,7 +10897,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   51,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   51,
@@ -10921,7 +10921,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   51,
 										},
 										File:   "endswith_strings_regexp_hasSuffix_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   51,
@@ -10939,7 +10939,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   51,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   51,
@@ -10960,7 +10960,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   51,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   51,
@@ -10978,7 +10978,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   51,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   51,
@@ -10996,7 +10996,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   51,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   51,
@@ -11016,7 +11016,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   51,
 														},
 														File:   "endswith_strings_regexp_hasSuffix_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   51,
@@ -11038,7 +11038,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   51,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   51,
@@ -11055,7 +11055,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   51,
 												},
 												File:   "endswith_strings_regexp_hasSuffix_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   51,
@@ -11073,7 +11073,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   51,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   51,
@@ -11092,7 +11092,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   51,
 													},
 													File:   "endswith_strings_regexp_hasSuffix_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   51,
@@ -11116,7 +11116,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   51,
 										},
 										File:   "endswith_strings_regexp_hasSuffix_test.flux",
-										Source: "fn: t_string_regexp_hasSuffix",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   51,
@@ -11134,7 +11134,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   51,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   51,
@@ -11154,7 +11154,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   51,
 											},
 											File:   "endswith_strings_regexp_hasSuffix_test.flux",
-											Source: "t_string_regexp_hasSuffix",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   51,
@@ -11184,7 +11184,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   51,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "test _string_regexp_hasSuffix = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasSuffix})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   50,
@@ -11204,7 +11204,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -11221,7 +11221,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -11241,7 +11241,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -11258,7 +11258,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -11278,7 +11278,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   6,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "import \"regexp\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   6,
@@ -11295,7 +11295,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   6,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "\"regexp\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   6,
@@ -11317,7 +11317,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "endswith_strings_regexp_hasSuffix_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -11334,7 +11334,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "endswith_strings_regexp_hasSuffix_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -11354,7 +11354,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   43,
 				},
 				File:   "extract_regexp_findStringIndex_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\nimport \"regexp\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,long\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,extract0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,2\n\"\nre = regexp.compile(v: \"[[:alpha:]]{1}\")\nt_string_extract = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]}))\n\ntest _string_extract = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -11372,7 +11372,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   8,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   8,
@@ -11389,7 +11389,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   8,
@@ -11409,7 +11409,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   8,
@@ -11426,7 +11426,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   8,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   8,
@@ -11449,7 +11449,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   8,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   8,
@@ -11466,7 +11466,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   22,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   10,
@@ -11483,7 +11483,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   10,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   10,
@@ -11502,7 +11502,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   11,
@@ -11521,7 +11521,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   35,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,long\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,extract0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,2\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   23,
@@ -11538,7 +11538,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   23,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   23,
@@ -11557,7 +11557,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,long\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,extract0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,1\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,0\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,2\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   24,
@@ -11576,7 +11576,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   36,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "re = regexp.compile(v: \"[[:alpha:]]{1}\")",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   36,
@@ -11593,7 +11593,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   36,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "re",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   36,
@@ -11613,7 +11613,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   36,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "v: \"[[:alpha:]]{1}\"",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   36,
@@ -11631,7 +11631,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "v: \"[[:alpha:]]{1}\"",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   36,
@@ -11649,7 +11649,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "extract_regexp_findStringIndex_test.flux",
-									Source: "v",
+									Source: "",
 									Start: ast.Position{
 										Column: 21,
 										Line:   36,
@@ -11669,7 +11669,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "extract_regexp_findStringIndex_test.flux",
-									Source: "\"[[:alpha:]]{1}\"",
+									Source: "",
 									Start: ast.Position{
 										Column: 24,
 										Line:   36,
@@ -11691,7 +11691,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   36,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "regexp.compile(v: \"[[:alpha:]]{1}\")",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   36,
@@ -11708,7 +11708,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   36,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "regexp.compile",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   36,
@@ -11726,7 +11726,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "regexp",
+								Source: "",
 								Start: ast.Position{
 									Column: 6,
 									Line:   36,
@@ -11745,7 +11745,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "compile",
+								Source: "",
 								Start: ast.Position{
 									Column: 13,
 									Line:   36,
@@ -11769,7 +11769,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   40,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "t_string_extract = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   37,
@@ -11786,7 +11786,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   37,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "t_string_extract",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   37,
@@ -11806,7 +11806,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   40,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 20,
 							Line:   37,
@@ -11825,7 +11825,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "extract_regexp_findStringIndex_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   38,
@@ -11843,7 +11843,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   39,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   38,
@@ -11861,7 +11861,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   39,
 										},
 										File:   "extract_regexp_findStringIndex_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   39,
@@ -11879,7 +11879,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   39,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   39,
@@ -11897,7 +11897,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   39,
@@ -11917,7 +11917,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   39,
@@ -11939,7 +11939,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   39,
 									},
 									File:   "extract_regexp_findStringIndex_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   39,
@@ -11956,7 +11956,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   39,
 										},
 										File:   "extract_regexp_findStringIndex_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   39,
@@ -11978,7 +11978,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   38,
@@ -11996,7 +11996,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   40,
 									},
 									File:   "extract_regexp_findStringIndex_test.flux",
-									Source: "fn: (r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   40,
@@ -12014,7 +12014,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   40,
 										},
 										File:   "extract_regexp_findStringIndex_test.flux",
-										Source: "fn: (r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   40,
@@ -12032,7 +12032,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   40,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   40,
@@ -12053,7 +12053,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   40,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "(r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   40,
@@ -12070,7 +12070,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   40,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   40,
@@ -12087,7 +12087,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   40,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "{r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   40,
@@ -12105,7 +12105,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   40,
 														},
 														File:   "extract_regexp_findStringIndex_test.flux",
-														Source: "extract0: regexp.findStringIndex(r: re, v: r._value)[0]",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   40,
@@ -12123,7 +12123,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   40,
 															},
 															File:   "extract_regexp_findStringIndex_test.flux",
-															Source: "extract0",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   40,
@@ -12145,7 +12145,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   40,
 																	},
 																	File:   "extract_regexp_findStringIndex_test.flux",
-																	Source: "r: re, v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 69,
 																		Line:   40,
@@ -12163,7 +12163,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findStringIndex_test.flux",
-																		Source: "r: re",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 69,
 																			Line:   40,
@@ -12181,7 +12181,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   40,
 																			},
 																			File:   "extract_regexp_findStringIndex_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 69,
 																				Line:   40,
@@ -12201,7 +12201,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   40,
 																			},
 																			File:   "extract_regexp_findStringIndex_test.flux",
-																			Source: "re",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 72,
 																				Line:   40,
@@ -12220,7 +12220,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findStringIndex_test.flux",
-																		Source: "v: r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 76,
 																			Line:   40,
@@ -12238,7 +12238,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   40,
 																			},
 																			File:   "extract_regexp_findStringIndex_test.flux",
-																			Source: "v",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 76,
 																				Line:   40,
@@ -12258,7 +12258,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   40,
 																			},
 																			File:   "extract_regexp_findStringIndex_test.flux",
-																			Source: "r._value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 79,
 																				Line:   40,
@@ -12276,7 +12276,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   40,
 																				},
 																				File:   "extract_regexp_findStringIndex_test.flux",
-																				Source: "r",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 79,
 																					Line:   40,
@@ -12295,7 +12295,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   40,
 																				},
 																				File:   "extract_regexp_findStringIndex_test.flux",
-																				Source: "_value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 81,
 																					Line:   40,
@@ -12319,7 +12319,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   40,
 																},
 																File:   "extract_regexp_findStringIndex_test.flux",
-																Source: "regexp.findStringIndex(r: re, v: r._value)",
+																Source: "",
 																Start: ast.Position{
 																	Column: 46,
 																	Line:   40,
@@ -12336,7 +12336,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   40,
 																	},
 																	File:   "extract_regexp_findStringIndex_test.flux",
-																	Source: "regexp.findStringIndex",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 46,
 																		Line:   40,
@@ -12354,7 +12354,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findStringIndex_test.flux",
-																		Source: "regexp",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 46,
 																			Line:   40,
@@ -12373,7 +12373,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findStringIndex_test.flux",
-																		Source: "findStringIndex",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 53,
 																			Line:   40,
@@ -12396,7 +12396,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   40,
 															},
 															File:   "extract_regexp_findStringIndex_test.flux",
-															Source: "regexp.findStringIndex(r: re, v: r._value)[0]",
+															Source: "",
 															Start: ast.Position{
 																Column: 46,
 																Line:   40,
@@ -12413,7 +12413,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   40,
 																},
 																File:   "extract_regexp_findStringIndex_test.flux",
-																Source: "0",
+																Source: "",
 																Start: ast.Position{
 																	Column: 89,
 																	Line:   40,
@@ -12437,7 +12437,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   40,
 														},
 														File:   "extract_regexp_findStringIndex_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   40,
@@ -12461,7 +12461,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   40,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   40,
@@ -12479,7 +12479,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   40,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   40,
@@ -12506,7 +12506,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   40,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "map(fn: (r) => ({r with extract0: regexp.findStringIndex(r: re, v: r._value)[0]}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   40,
@@ -12523,7 +12523,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   40,
 									},
 									File:   "extract_regexp_findStringIndex_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   40,
@@ -12547,7 +12547,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   37,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   37,
@@ -12565,7 +12565,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   37,
@@ -12584,7 +12584,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   37,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 27,
 								Line:   37,
@@ -12605,7 +12605,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   43,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "_string_extract = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   42,
@@ -12622,7 +12622,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   42,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "_string_extract",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   42,
@@ -12642,7 +12642,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   43,
 							},
 							File:   "extract_regexp_findStringIndex_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+							Source: "",
 							Start: ast.Position{
 								Column: 24,
 								Line:   42,
@@ -12659,7 +12659,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   43,
 								},
 								File:   "extract_regexp_findStringIndex_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   43,
@@ -12676,7 +12676,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   43,
 									},
 									File:   "extract_regexp_findStringIndex_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   43,
@@ -12694,7 +12694,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "extract_regexp_findStringIndex_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   43,
@@ -12712,7 +12712,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   43,
@@ -12733,7 +12733,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   43,
@@ -12751,7 +12751,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   43,
@@ -12769,7 +12769,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findStringIndex_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   43,
@@ -12789,7 +12789,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findStringIndex_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   43,
@@ -12811,7 +12811,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   43,
@@ -12828,7 +12828,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   43,
@@ -12846,7 +12846,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   43,
@@ -12865,7 +12865,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   43,
@@ -12889,7 +12889,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "extract_regexp_findStringIndex_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   43,
@@ -12907,7 +12907,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   43,
@@ -12928,7 +12928,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   43,
@@ -12946,7 +12946,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   43,
@@ -12964,7 +12964,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findStringIndex_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   43,
@@ -12984,7 +12984,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findStringIndex_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   43,
@@ -13006,7 +13006,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   43,
@@ -13023,7 +13023,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findStringIndex_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   43,
@@ -13041,7 +13041,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   43,
@@ -13060,7 +13060,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findStringIndex_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   43,
@@ -13084,7 +13084,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "extract_regexp_findStringIndex_test.flux",
-										Source: "fn: t_string_extract",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   43,
@@ -13102,7 +13102,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   43,
@@ -13122,7 +13122,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findStringIndex_test.flux",
-											Source: "t_string_extract",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   43,
@@ -13152,7 +13152,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   43,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "test _string_extract = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   42,
@@ -13172,7 +13172,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -13189,7 +13189,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -13209,7 +13209,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -13226,7 +13226,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -13246,7 +13246,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   6,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "import \"regexp\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   6,
@@ -13263,7 +13263,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   6,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "\"regexp\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   6,
@@ -13285,7 +13285,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "extract_regexp_findStringIndex_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -13302,7 +13302,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "extract_regexp_findStringIndex_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -13322,7 +13322,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   43,
 				},
 				File:   "extract_regexp_findString_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\nimport \"regexp\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,extract\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,a\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,k\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,b\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,C\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,c\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,F\n\"\nre = regexp.compile(v: \"[[:alpha:]]{1}\")\nt_string_extract = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract: regexp.findString(r: re, v: r._value)}))\n\ntest _string_extract = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -13340,7 +13340,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   8,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   8,
@@ -13357,7 +13357,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   8,
@@ -13377,7 +13377,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   8,
@@ -13394,7 +13394,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   8,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   8,
@@ -13417,7 +13417,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   8,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   8,
@@ -13434,7 +13434,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   22,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   10,
@@ -13451,7 +13451,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   10,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   10,
@@ -13470,7 +13470,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   11,
@@ -13489,7 +13489,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   35,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,extract\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,a\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,k\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,b\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,C\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,c\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,F\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   23,
@@ -13506,7 +13506,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   23,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   23,
@@ -13525,7 +13525,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true,false\n#default,_result,,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path,extract\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/,a\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/,k\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/,b\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/,C\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/,c\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/,F\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   24,
@@ -13544,7 +13544,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   36,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "re = regexp.compile(v: \"[[:alpha:]]{1}\")",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   36,
@@ -13561,7 +13561,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   36,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "re",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   36,
@@ -13581,7 +13581,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   36,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "v: \"[[:alpha:]]{1}\"",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   36,
@@ -13599,7 +13599,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "v: \"[[:alpha:]]{1}\"",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   36,
@@ -13617,7 +13617,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "extract_regexp_findString_test.flux",
-									Source: "v",
+									Source: "",
 									Start: ast.Position{
 										Column: 21,
 										Line:   36,
@@ -13637,7 +13637,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "extract_regexp_findString_test.flux",
-									Source: "\"[[:alpha:]]{1}\"",
+									Source: "",
 									Start: ast.Position{
 										Column: 24,
 										Line:   36,
@@ -13659,7 +13659,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   36,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "regexp.compile(v: \"[[:alpha:]]{1}\")",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   36,
@@ -13676,7 +13676,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   36,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "regexp.compile",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   36,
@@ -13694,7 +13694,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "regexp",
+								Source: "",
 								Start: ast.Position{
 									Column: 6,
 									Line:   36,
@@ -13713,7 +13713,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   36,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "compile",
+								Source: "",
 								Start: ast.Position{
 									Column: 13,
 									Line:   36,
@@ -13737,7 +13737,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   40,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "t_string_extract = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract: regexp.findString(r: re, v: r._value)}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   37,
@@ -13754,7 +13754,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   37,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "t_string_extract",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   37,
@@ -13774,7 +13774,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   40,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract: regexp.findString(r: re, v: r._value)}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 20,
 							Line:   37,
@@ -13793,7 +13793,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "extract_regexp_findString_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   38,
@@ -13811,7 +13811,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   39,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   38,
@@ -13829,7 +13829,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   39,
 										},
 										File:   "extract_regexp_findString_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   39,
@@ -13847,7 +13847,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   39,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   39,
@@ -13865,7 +13865,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   39,
@@ -13885,7 +13885,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   39,
@@ -13907,7 +13907,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   39,
 									},
 									File:   "extract_regexp_findString_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   39,
@@ -13924,7 +13924,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   39,
 										},
 										File:   "extract_regexp_findString_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   39,
@@ -13946,7 +13946,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with extract: regexp.findString(r: re, v: r._value)}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   38,
@@ -13964,7 +13964,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   40,
 									},
 									File:   "extract_regexp_findString_test.flux",
-									Source: "fn: (r) => ({r with extract: regexp.findString(r: re, v: r._value)})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   40,
@@ -13982,7 +13982,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   40,
 										},
 										File:   "extract_regexp_findString_test.flux",
-										Source: "fn: (r) => ({r with extract: regexp.findString(r: re, v: r._value)})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   40,
@@ -14000,7 +14000,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   40,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   40,
@@ -14021,7 +14021,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   40,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "(r) => ({r with extract: regexp.findString(r: re, v: r._value)})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   40,
@@ -14038,7 +14038,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   40,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "({r with extract: regexp.findString(r: re, v: r._value)})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   40,
@@ -14055,7 +14055,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   40,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "{r with extract: regexp.findString(r: re, v: r._value)}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   40,
@@ -14073,7 +14073,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   40,
 														},
 														File:   "extract_regexp_findString_test.flux",
-														Source: "extract: regexp.findString(r: re, v: r._value)",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   40,
@@ -14091,7 +14091,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   40,
 															},
 															File:   "extract_regexp_findString_test.flux",
-															Source: "extract",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   40,
@@ -14112,7 +14112,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   40,
 																},
 																File:   "extract_regexp_findString_test.flux",
-																Source: "r: re, v: r._value",
+																Source: "",
 																Start: ast.Position{
 																	Column: 63,
 																	Line:   40,
@@ -14130,7 +14130,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   40,
 																	},
 																	File:   "extract_regexp_findString_test.flux",
-																	Source: "r: re",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 63,
 																		Line:   40,
@@ -14148,7 +14148,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findString_test.flux",
-																		Source: "r",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 63,
 																			Line:   40,
@@ -14168,7 +14168,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findString_test.flux",
-																		Source: "re",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 66,
 																			Line:   40,
@@ -14187,7 +14187,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   40,
 																	},
 																	File:   "extract_regexp_findString_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 70,
 																		Line:   40,
@@ -14205,7 +14205,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findString_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 70,
 																			Line:   40,
@@ -14225,7 +14225,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   40,
 																		},
 																		File:   "extract_regexp_findString_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 73,
 																			Line:   40,
@@ -14243,7 +14243,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   40,
 																			},
 																			File:   "extract_regexp_findString_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 73,
 																				Line:   40,
@@ -14262,7 +14262,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   40,
 																			},
 																			File:   "extract_regexp_findString_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 75,
 																				Line:   40,
@@ -14286,7 +14286,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   40,
 															},
 															File:   "extract_regexp_findString_test.flux",
-															Source: "regexp.findString(r: re, v: r._value)",
+															Source: "",
 															Start: ast.Position{
 																Column: 45,
 																Line:   40,
@@ -14303,7 +14303,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   40,
 																},
 																File:   "extract_regexp_findString_test.flux",
-																Source: "regexp.findString",
+																Source: "",
 																Start: ast.Position{
 																	Column: 45,
 																	Line:   40,
@@ -14321,7 +14321,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   40,
 																	},
 																	File:   "extract_regexp_findString_test.flux",
-																	Source: "regexp",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 45,
 																		Line:   40,
@@ -14340,7 +14340,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   40,
 																	},
 																	File:   "extract_regexp_findString_test.flux",
-																	Source: "findString",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   40,
@@ -14366,7 +14366,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   40,
 														},
 														File:   "extract_regexp_findString_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   40,
@@ -14390,7 +14390,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   40,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   40,
@@ -14408,7 +14408,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   40,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   40,
@@ -14435,7 +14435,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   40,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "map(fn: (r) => ({r with extract: regexp.findString(r: re, v: r._value)}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   40,
@@ -14452,7 +14452,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   40,
 									},
 									File:   "extract_regexp_findString_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   40,
@@ -14476,7 +14476,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   37,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   37,
@@ -14494,7 +14494,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   37,
@@ -14513,7 +14513,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   37,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 27,
 								Line:   37,
@@ -14534,7 +14534,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   43,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "_string_extract = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   42,
@@ -14551,7 +14551,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   42,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "_string_extract",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   42,
@@ -14571,7 +14571,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   43,
 							},
 							File:   "extract_regexp_findString_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+							Source: "",
 							Start: ast.Position{
 								Column: 24,
 								Line:   42,
@@ -14588,7 +14588,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   43,
 								},
 								File:   "extract_regexp_findString_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   43,
@@ -14605,7 +14605,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   43,
 									},
 									File:   "extract_regexp_findString_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   43,
@@ -14623,7 +14623,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "extract_regexp_findString_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   43,
@@ -14641,7 +14641,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   43,
@@ -14662,7 +14662,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   43,
@@ -14680,7 +14680,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   43,
@@ -14698,7 +14698,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findString_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   43,
@@ -14718,7 +14718,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findString_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   43,
@@ -14740,7 +14740,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   43,
@@ -14757,7 +14757,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   43,
@@ -14775,7 +14775,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   43,
@@ -14794,7 +14794,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   43,
@@ -14818,7 +14818,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "extract_regexp_findString_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   43,
@@ -14836,7 +14836,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   43,
@@ -14857,7 +14857,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   43,
@@ -14875,7 +14875,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   43,
@@ -14893,7 +14893,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findString_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   43,
@@ -14913,7 +14913,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "extract_regexp_findString_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   43,
@@ -14935,7 +14935,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   43,
@@ -14952,7 +14952,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "extract_regexp_findString_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   43,
@@ -14970,7 +14970,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   43,
@@ -14989,7 +14989,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "extract_regexp_findString_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   43,
@@ -15013,7 +15013,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "extract_regexp_findString_test.flux",
-										Source: "fn: t_string_extract",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   43,
@@ -15031,7 +15031,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   43,
@@ -15051,7 +15051,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "extract_regexp_findString_test.flux",
-											Source: "t_string_extract",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   43,
@@ -15081,7 +15081,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   43,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "test _string_extract = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_extract})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   42,
@@ -15101,7 +15101,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -15118,7 +15118,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -15138,7 +15138,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -15155,7 +15155,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -15175,7 +15175,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   6,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "import \"regexp\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   6,
@@ -15192,7 +15192,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   6,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "\"regexp\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   6,
@@ -15214,7 +15214,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "extract_regexp_findString_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -15231,7 +15231,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "extract_regexp_findString_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -15251,7 +15251,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "get_strings_substring_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,c,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,1,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_subset = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)}))\n\ntest _string_subset = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_subset})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -15269,7 +15269,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -15286,7 +15286,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "get_strings_substring_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -15306,7 +15306,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "get_strings_substring_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -15323,7 +15323,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "get_strings_substring_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -15346,7 +15346,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -15363,7 +15363,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -15380,7 +15380,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -15399,7 +15399,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -15418,7 +15418,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,c,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,1,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -15435,7 +15435,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -15454,7 +15454,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,c,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,1,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -15473,7 +15473,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "t_string_subset = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -15490,7 +15490,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "t_string_subset",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -15510,7 +15510,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 19,
 							Line:   35,
@@ -15529,7 +15529,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "get_strings_substring_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -15547,7 +15547,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "get_strings_substring_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -15565,7 +15565,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "get_strings_substring_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -15583,7 +15583,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -15601,7 +15601,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -15621,7 +15621,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -15643,7 +15643,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "get_strings_substring_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -15660,7 +15660,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "get_strings_substring_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -15682,7 +15682,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "get_strings_substring_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -15700,7 +15700,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "get_strings_substring_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -15718,7 +15718,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "get_strings_substring_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -15736,7 +15736,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -15757,7 +15757,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "(r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -15774,7 +15774,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "({r with _value: strings.substring(v: r._value, start: 0, end: 1)})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -15791,7 +15791,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "{r with _value: strings.substring(v: r._value, start: 0, end: 1)}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -15809,7 +15809,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "get_strings_substring_test.flux",
-														Source: "_value: strings.substring(v: r._value, start: 0, end: 1)",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -15827,7 +15827,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "get_strings_substring_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -15848,7 +15848,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "get_strings_substring_test.flux",
-																Source: "v: r._value, start: 0, end: 1",
+																Source: "",
 																Start: ast.Position{
 																	Column: 62,
 																	Line:   38,
@@ -15866,7 +15866,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "get_strings_substring_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 62,
 																		Line:   38,
@@ -15884,7 +15884,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "get_strings_substring_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 62,
 																			Line:   38,
@@ -15904,7 +15904,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "get_strings_substring_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 65,
 																			Line:   38,
@@ -15922,7 +15922,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "get_strings_substring_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 65,
 																				Line:   38,
@@ -15941,7 +15941,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "get_strings_substring_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 67,
 																				Line:   38,
@@ -15962,7 +15962,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "get_strings_substring_test.flux",
-																	Source: "start: 0",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 75,
 																		Line:   38,
@@ -15980,7 +15980,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "get_strings_substring_test.flux",
-																		Source: "start",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 75,
 																			Line:   38,
@@ -16000,7 +16000,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "get_strings_substring_test.flux",
-																		Source: "0",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 82,
 																			Line:   38,
@@ -16019,7 +16019,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "get_strings_substring_test.flux",
-																	Source: "end: 1",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 85,
 																		Line:   38,
@@ -16037,7 +16037,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "get_strings_substring_test.flux",
-																		Source: "end",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 85,
 																			Line:   38,
@@ -16057,7 +16057,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "get_strings_substring_test.flux",
-																		Source: "1",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 90,
 																			Line:   38,
@@ -16079,7 +16079,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "get_strings_substring_test.flux",
-															Source: "strings.substring(v: r._value, start: 0, end: 1)",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -16096,7 +16096,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "get_strings_substring_test.flux",
-																Source: "strings.substring",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -16114,7 +16114,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "get_strings_substring_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -16133,7 +16133,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "get_strings_substring_test.flux",
-																	Source: "substring",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -16159,7 +16159,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "get_strings_substring_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -16183,7 +16183,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -16201,7 +16201,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -16228,7 +16228,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "get_strings_substring_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.substring(v: r._value, start: 0, end: 1)}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -16245,7 +16245,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "get_strings_substring_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -16269,7 +16269,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "get_strings_substring_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 20,
 								Line:   35,
@@ -16287,7 +16287,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "get_strings_substring_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   35,
@@ -16306,7 +16306,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "get_strings_substring_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 26,
 								Line:   35,
@@ -16327,7 +16327,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "_string_subset = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_subset})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -16344,7 +16344,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "get_strings_substring_test.flux",
-							Source: "_string_subset",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -16364,7 +16364,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "get_strings_substring_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_subset})",
+							Source: "",
 							Start: ast.Position{
 								Column: 23,
 								Line:   40,
@@ -16381,7 +16381,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "get_strings_substring_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_subset})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -16398,7 +16398,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "get_strings_substring_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_subset}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -16416,7 +16416,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "get_strings_substring_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -16434,7 +16434,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -16455,7 +16455,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -16473,7 +16473,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -16491,7 +16491,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "get_strings_substring_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -16511,7 +16511,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "get_strings_substring_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -16533,7 +16533,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -16550,7 +16550,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -16568,7 +16568,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -16587,7 +16587,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -16611,7 +16611,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "get_strings_substring_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -16629,7 +16629,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -16650,7 +16650,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -16668,7 +16668,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -16686,7 +16686,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "get_strings_substring_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -16706,7 +16706,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "get_strings_substring_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -16728,7 +16728,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -16745,7 +16745,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "get_strings_substring_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -16763,7 +16763,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -16782,7 +16782,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "get_strings_substring_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -16806,7 +16806,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "get_strings_substring_test.flux",
-										Source: "fn: t_string_subset",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -16824,7 +16824,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -16844,7 +16844,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "get_strings_substring_test.flux",
-											Source: "t_string_subset",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -16874,7 +16874,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "test _string_subset = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_subset})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -16894,7 +16894,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -16911,7 +16911,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -16931,7 +16931,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -16948,7 +16948,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -16970,7 +16970,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "get_strings_substring_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -16987,7 +16987,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "get_strings_substring_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -17007,7 +17007,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "ljust_string_joinStr_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z, a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z, k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z, b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z, 2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z, cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z, 13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_ljust = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")}))\n\ntest _string_ljust = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_ljust})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -17025,7 +17025,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -17042,7 +17042,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "ljust_string_joinStr_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -17062,7 +17062,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "ljust_string_joinStr_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -17079,7 +17079,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "ljust_string_joinStr_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -17102,7 +17102,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -17119,7 +17119,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -17136,7 +17136,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -17155,7 +17155,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -17174,7 +17174,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z, a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z, k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z, b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z, 2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z, cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z, 13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -17191,7 +17191,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -17210,7 +17210,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z, a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z, k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z, b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z, 2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z, cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z, 13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -17229,7 +17229,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "t_string_ljust = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -17246,7 +17246,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "t_string_ljust",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -17266,7 +17266,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 18,
 							Line:   35,
@@ -17285,7 +17285,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "ljust_string_joinStr_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -17303,7 +17303,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "ljust_string_joinStr_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -17321,7 +17321,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "ljust_string_joinStr_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -17339,7 +17339,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -17357,7 +17357,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -17377,7 +17377,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -17399,7 +17399,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "ljust_string_joinStr_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -17416,7 +17416,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "ljust_string_joinStr_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -17438,7 +17438,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "ljust_string_joinStr_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -17456,7 +17456,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "ljust_string_joinStr_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -17474,7 +17474,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "ljust_string_joinStr_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -17492,7 +17492,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -17513,7 +17513,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "(r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -17530,7 +17530,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -17547,7 +17547,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "{r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -17565,7 +17565,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "ljust_string_joinStr_test.flux",
-														Source: "_value: strings.joinStr(arr: [\" \", r._value], v: \"\")",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -17583,7 +17583,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "ljust_string_joinStr_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -17604,7 +17604,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "ljust_string_joinStr_test.flux",
-																Source: "arr: [\" \", r._value], v: \"\"",
+																Source: "",
 																Start: ast.Position{
 																	Column: 60,
 																	Line:   38,
@@ -17622,7 +17622,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "ljust_string_joinStr_test.flux",
-																	Source: "arr: [\" \", r._value]",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 60,
 																		Line:   38,
@@ -17640,7 +17640,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "ljust_string_joinStr_test.flux",
-																		Source: "arr",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 60,
 																			Line:   38,
@@ -17660,7 +17660,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "ljust_string_joinStr_test.flux",
-																		Source: "[\" \", r._value]",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 65,
 																			Line:   38,
@@ -17677,7 +17677,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "ljust_string_joinStr_test.flux",
-																			Source: "\" \"",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 66,
 																				Line:   38,
@@ -17695,7 +17695,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "ljust_string_joinStr_test.flux",
-																			Source: "r._value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 71,
 																				Line:   38,
@@ -17713,7 +17713,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "ljust_string_joinStr_test.flux",
-																				Source: "r",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 71,
 																					Line:   38,
@@ -17732,7 +17732,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "ljust_string_joinStr_test.flux",
-																				Source: "_value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 73,
 																					Line:   38,
@@ -17756,7 +17756,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "ljust_string_joinStr_test.flux",
-																	Source: "v: \"\"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 82,
 																		Line:   38,
@@ -17774,7 +17774,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "ljust_string_joinStr_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 82,
 																			Line:   38,
@@ -17794,7 +17794,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "ljust_string_joinStr_test.flux",
-																		Source: "\"\"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 85,
 																			Line:   38,
@@ -17816,7 +17816,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "ljust_string_joinStr_test.flux",
-															Source: "strings.joinStr(arr: [\" \", r._value], v: \"\")",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -17833,7 +17833,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "ljust_string_joinStr_test.flux",
-																Source: "strings.joinStr",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -17851,7 +17851,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "ljust_string_joinStr_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -17870,7 +17870,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "ljust_string_joinStr_test.flux",
-																	Source: "joinStr",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -17896,7 +17896,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "ljust_string_joinStr_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -17920,7 +17920,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -17938,7 +17938,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -17965,7 +17965,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "ljust_string_joinStr_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.joinStr(arr: [\" \", r._value], v: \"\")}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -17982,7 +17982,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "ljust_string_joinStr_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -18006,7 +18006,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "ljust_string_joinStr_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 19,
 								Line:   35,
@@ -18024,7 +18024,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "ljust_string_joinStr_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 19,
 									Line:   35,
@@ -18043,7 +18043,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "ljust_string_joinStr_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 25,
 								Line:   35,
@@ -18064,7 +18064,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "_string_ljust = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_ljust})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -18081,7 +18081,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "ljust_string_joinStr_test.flux",
-							Source: "_string_ljust",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -18101,7 +18101,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "ljust_string_joinStr_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_ljust})",
+							Source: "",
 							Start: ast.Position{
 								Column: 22,
 								Line:   40,
@@ -18118,7 +18118,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "ljust_string_joinStr_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_ljust})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -18135,7 +18135,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "ljust_string_joinStr_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_ljust}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -18153,7 +18153,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "ljust_string_joinStr_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -18171,7 +18171,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -18192,7 +18192,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -18210,7 +18210,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -18228,7 +18228,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "ljust_string_joinStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -18248,7 +18248,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "ljust_string_joinStr_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -18270,7 +18270,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -18287,7 +18287,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -18305,7 +18305,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -18324,7 +18324,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -18348,7 +18348,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "ljust_string_joinStr_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -18366,7 +18366,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -18387,7 +18387,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -18405,7 +18405,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -18423,7 +18423,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "ljust_string_joinStr_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -18443,7 +18443,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "ljust_string_joinStr_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -18465,7 +18465,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -18482,7 +18482,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "ljust_string_joinStr_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -18500,7 +18500,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -18519,7 +18519,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "ljust_string_joinStr_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -18543,7 +18543,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "ljust_string_joinStr_test.flux",
-										Source: "fn: t_string_ljust",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -18561,7 +18561,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -18581,7 +18581,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "ljust_string_joinStr_test.flux",
-											Source: "t_string_ljust",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -18611,7 +18611,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "test _string_ljust = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_ljust})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -18631,7 +18631,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -18648,7 +18648,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -18668,7 +18668,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -18685,7 +18685,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -18707,7 +18707,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "ljust_string_joinStr_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -18724,7 +18724,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "ljust_string_joinStr_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -18744,7 +18744,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "lower_strings_toLower_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2cotde,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,clnsknmi  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13f2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_toLower = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toLower(v: r._value)}))\n\ntest _string_toLower = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toLower})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -18762,7 +18762,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -18779,7 +18779,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "lower_strings_toLower_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -18799,7 +18799,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "lower_strings_toLower_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -18816,7 +18816,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "lower_strings_toLower_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -18839,7 +18839,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -18856,7 +18856,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -18873,7 +18873,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -18892,7 +18892,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -18911,7 +18911,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2cotde,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,clnsknmi  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13f2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -18928,7 +18928,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -18947,7 +18947,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2cotde,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,clnsknmi  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13f2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -18966,7 +18966,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "t_string_toLower = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toLower(v: r._value)}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -18983,7 +18983,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "t_string_toLower",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -19003,7 +19003,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toLower(v: r._value)}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 20,
 							Line:   35,
@@ -19022,7 +19022,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "lower_strings_toLower_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -19040,7 +19040,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "lower_strings_toLower_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -19058,7 +19058,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "lower_strings_toLower_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -19076,7 +19076,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -19094,7 +19094,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -19114,7 +19114,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -19136,7 +19136,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "lower_strings_toLower_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -19153,7 +19153,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "lower_strings_toLower_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -19175,7 +19175,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "lower_strings_toLower_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.toLower(v: r._value)}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -19193,7 +19193,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "lower_strings_toLower_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.toLower(v: r._value)})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -19211,7 +19211,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "lower_strings_toLower_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.toLower(v: r._value)})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -19229,7 +19229,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -19250,7 +19250,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "(r) => ({r with _value: strings.toLower(v: r._value)})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -19267,7 +19267,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "({r with _value: strings.toLower(v: r._value)})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -19284,7 +19284,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "{r with _value: strings.toLower(v: r._value)}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -19302,7 +19302,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "lower_strings_toLower_test.flux",
-														Source: "_value: strings.toLower(v: r._value)",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -19320,7 +19320,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "lower_strings_toLower_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -19341,7 +19341,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "lower_strings_toLower_test.flux",
-																Source: "v: r._value",
+																Source: "",
 																Start: ast.Position{
 																	Column: 60,
 																	Line:   38,
@@ -19359,7 +19359,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "lower_strings_toLower_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 60,
 																		Line:   38,
@@ -19377,7 +19377,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "lower_strings_toLower_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 60,
 																			Line:   38,
@@ -19397,7 +19397,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "lower_strings_toLower_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 63,
 																			Line:   38,
@@ -19415,7 +19415,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "lower_strings_toLower_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 63,
 																				Line:   38,
@@ -19434,7 +19434,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "lower_strings_toLower_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 65,
 																				Line:   38,
@@ -19458,7 +19458,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "lower_strings_toLower_test.flux",
-															Source: "strings.toLower(v: r._value)",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -19475,7 +19475,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "lower_strings_toLower_test.flux",
-																Source: "strings.toLower",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -19493,7 +19493,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "lower_strings_toLower_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -19512,7 +19512,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "lower_strings_toLower_test.flux",
-																	Source: "toLower",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -19538,7 +19538,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "lower_strings_toLower_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -19562,7 +19562,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -19580,7 +19580,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -19607,7 +19607,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "lower_strings_toLower_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.toLower(v: r._value)}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -19624,7 +19624,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "lower_strings_toLower_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -19648,7 +19648,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "lower_strings_toLower_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   35,
@@ -19666,7 +19666,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "lower_strings_toLower_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   35,
@@ -19685,7 +19685,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "lower_strings_toLower_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 27,
 								Line:   35,
@@ -19706,7 +19706,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "_string_toLower = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toLower})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -19723,7 +19723,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "lower_strings_toLower_test.flux",
-							Source: "_string_toLower",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -19743,7 +19743,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "lower_strings_toLower_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toLower})",
+							Source: "",
 							Start: ast.Position{
 								Column: 24,
 								Line:   40,
@@ -19760,7 +19760,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "lower_strings_toLower_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toLower})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -19777,7 +19777,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "lower_strings_toLower_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toLower}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -19795,7 +19795,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "lower_strings_toLower_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -19813,7 +19813,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -19834,7 +19834,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -19852,7 +19852,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -19870,7 +19870,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lower_strings_toLower_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -19890,7 +19890,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lower_strings_toLower_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -19912,7 +19912,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -19929,7 +19929,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -19947,7 +19947,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -19966,7 +19966,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -19990,7 +19990,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "lower_strings_toLower_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -20008,7 +20008,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -20029,7 +20029,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -20047,7 +20047,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -20065,7 +20065,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lower_strings_toLower_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -20085,7 +20085,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lower_strings_toLower_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -20107,7 +20107,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -20124,7 +20124,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lower_strings_toLower_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -20142,7 +20142,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -20161,7 +20161,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lower_strings_toLower_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -20185,7 +20185,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "lower_strings_toLower_test.flux",
-										Source: "fn: t_string_toLower",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -20203,7 +20203,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -20223,7 +20223,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lower_strings_toLower_test.flux",
-											Source: "t_string_toLower",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -20253,7 +20253,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "test _string_toLower = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_toLower})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -20273,7 +20273,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -20290,7 +20290,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -20310,7 +20310,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -20327,7 +20327,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -20349,7 +20349,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "lower_strings_toLower_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -20366,7 +20366,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "lower_strings_toLower_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -20386,7 +20386,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "lstrip_string_trimLeft_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,  cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_trimLeft = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")}))\n\ntest _string_trimLeft = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimLeft})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -20404,7 +20404,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -20421,7 +20421,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "lstrip_string_trimLeft_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -20441,7 +20441,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "lstrip_string_trimLeft_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -20458,7 +20458,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "lstrip_string_trimLeft_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -20481,7 +20481,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -20498,7 +20498,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,  cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -20515,7 +20515,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -20534,7 +20534,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,  cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -20553,7 +20553,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -20570,7 +20570,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -20589,7 +20589,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -20608,7 +20608,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "t_string_trimLeft = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -20625,7 +20625,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "t_string_trimLeft",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -20645,7 +20645,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 21,
 							Line:   35,
@@ -20664,7 +20664,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "lstrip_string_trimLeft_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -20682,7 +20682,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "lstrip_string_trimLeft_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -20700,7 +20700,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "lstrip_string_trimLeft_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -20718,7 +20718,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -20736,7 +20736,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -20756,7 +20756,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -20778,7 +20778,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "lstrip_string_trimLeft_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -20795,7 +20795,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "lstrip_string_trimLeft_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -20817,7 +20817,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "lstrip_string_trimLeft_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -20835,7 +20835,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "lstrip_string_trimLeft_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -20853,7 +20853,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "lstrip_string_trimLeft_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -20871,7 +20871,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -20892,7 +20892,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "(r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -20909,7 +20909,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "({r with _value: strings.trimLeft(v: r._value, cutset: \" \")})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -20926,7 +20926,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "{r with _value: strings.trimLeft(v: r._value, cutset: \" \")}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -20944,7 +20944,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "lstrip_string_trimLeft_test.flux",
-														Source: "_value: strings.trimLeft(v: r._value, cutset: \" \")",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -20962,7 +20962,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "lstrip_string_trimLeft_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -20983,7 +20983,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "lstrip_string_trimLeft_test.flux",
-																Source: "v: r._value, cutset: \" \"",
+																Source: "",
 																Start: ast.Position{
 																	Column: 61,
 																	Line:   38,
@@ -21001,7 +21001,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "lstrip_string_trimLeft_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 61,
 																		Line:   38,
@@ -21019,7 +21019,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "lstrip_string_trimLeft_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 61,
 																			Line:   38,
@@ -21039,7 +21039,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "lstrip_string_trimLeft_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 64,
 																			Line:   38,
@@ -21057,7 +21057,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "lstrip_string_trimLeft_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 64,
 																				Line:   38,
@@ -21076,7 +21076,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "lstrip_string_trimLeft_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 66,
 																				Line:   38,
@@ -21097,7 +21097,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "lstrip_string_trimLeft_test.flux",
-																	Source: "cutset: \" \"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 74,
 																		Line:   38,
@@ -21115,7 +21115,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "lstrip_string_trimLeft_test.flux",
-																		Source: "cutset",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 74,
 																			Line:   38,
@@ -21135,7 +21135,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "lstrip_string_trimLeft_test.flux",
-																		Source: "\" \"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 82,
 																			Line:   38,
@@ -21157,7 +21157,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "lstrip_string_trimLeft_test.flux",
-															Source: "strings.trimLeft(v: r._value, cutset: \" \")",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -21174,7 +21174,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "lstrip_string_trimLeft_test.flux",
-																Source: "strings.trimLeft",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -21192,7 +21192,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "lstrip_string_trimLeft_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -21211,7 +21211,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "lstrip_string_trimLeft_test.flux",
-																	Source: "trimLeft",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -21237,7 +21237,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "lstrip_string_trimLeft_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -21261,7 +21261,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -21279,7 +21279,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -21306,7 +21306,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "lstrip_string_trimLeft_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.trimLeft(v: r._value, cutset: \" \")}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -21323,7 +21323,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "lstrip_string_trimLeft_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -21347,7 +21347,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "lstrip_string_trimLeft_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 22,
 								Line:   35,
@@ -21365,7 +21365,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "lstrip_string_trimLeft_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 22,
 									Line:   35,
@@ -21384,7 +21384,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "lstrip_string_trimLeft_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 28,
 								Line:   35,
@@ -21405,7 +21405,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "_string_trimLeft = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimLeft})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -21422,7 +21422,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "lstrip_string_trimLeft_test.flux",
-							Source: "_string_trimLeft",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -21442,7 +21442,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "lstrip_string_trimLeft_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimLeft})",
+							Source: "",
 							Start: ast.Position{
 								Column: 25,
 								Line:   40,
@@ -21459,7 +21459,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "lstrip_string_trimLeft_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimLeft})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -21476,7 +21476,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "lstrip_string_trimLeft_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimLeft}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -21494,7 +21494,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "lstrip_string_trimLeft_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -21512,7 +21512,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -21533,7 +21533,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -21551,7 +21551,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -21569,7 +21569,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lstrip_string_trimLeft_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -21589,7 +21589,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lstrip_string_trimLeft_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -21611,7 +21611,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -21628,7 +21628,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -21646,7 +21646,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -21665,7 +21665,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -21689,7 +21689,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "lstrip_string_trimLeft_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -21707,7 +21707,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -21728,7 +21728,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -21746,7 +21746,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -21764,7 +21764,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lstrip_string_trimLeft_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -21784,7 +21784,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "lstrip_string_trimLeft_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -21806,7 +21806,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -21823,7 +21823,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "lstrip_string_trimLeft_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -21841,7 +21841,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -21860,7 +21860,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "lstrip_string_trimLeft_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -21884,7 +21884,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "lstrip_string_trimLeft_test.flux",
-										Source: "fn: t_string_trimLeft",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -21902,7 +21902,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -21922,7 +21922,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "lstrip_string_trimLeft_test.flux",
-											Source: "t_string_trimLeft",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -21952,7 +21952,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "test _string_trimLeft = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimLeft})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -21972,7 +21972,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -21989,7 +21989,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -22009,7 +22009,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -22026,7 +22026,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -22048,7 +22048,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "lstrip_string_trimLeft_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -22065,7 +22065,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "lstrip_string_trimLeft_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -22085,7 +22085,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "partition_strings_splitN_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_partition = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]}))\n\ntest _string_partition = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -22103,7 +22103,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -22120,7 +22120,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "partition_strings_splitN_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -22140,7 +22140,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "partition_strings_splitN_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -22157,7 +22157,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "partition_strings_splitN_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -22180,7 +22180,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -22197,7 +22197,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -22214,7 +22214,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -22233,7 +22233,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -22252,7 +22252,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -22269,7 +22269,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -22288,7 +22288,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -22307,7 +22307,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "t_string_partition = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -22324,7 +22324,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "t_string_partition",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -22344,7 +22344,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 22,
 							Line:   35,
@@ -22363,7 +22363,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "partition_strings_splitN_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -22381,7 +22381,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "partition_strings_splitN_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -22399,7 +22399,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "partition_strings_splitN_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -22417,7 +22417,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -22435,7 +22435,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -22455,7 +22455,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -22477,7 +22477,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "partition_strings_splitN_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -22494,7 +22494,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "partition_strings_splitN_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -22516,7 +22516,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "partition_strings_splitN_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -22534,7 +22534,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "partition_strings_splitN_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -22552,7 +22552,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "partition_strings_splitN_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -22570,7 +22570,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -22591,7 +22591,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "(r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -22608,7 +22608,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -22625,7 +22625,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "{r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -22643,7 +22643,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "partition_strings_splitN_test.flux",
-														Source: "_value: strings.splitN(v: r._value, t: \" \", i: 2)[0]",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -22661,7 +22661,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "partition_strings_splitN_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -22683,7 +22683,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "partition_strings_splitN_test.flux",
-																	Source: "v: r._value, t: \" \", i: 2",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 59,
 																		Line:   38,
@@ -22701,7 +22701,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "partition_strings_splitN_test.flux",
-																		Source: "v: r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 59,
 																			Line:   38,
@@ -22719,7 +22719,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "partition_strings_splitN_test.flux",
-																			Source: "v",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 59,
 																				Line:   38,
@@ -22739,7 +22739,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "partition_strings_splitN_test.flux",
-																			Source: "r._value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 62,
 																				Line:   38,
@@ -22757,7 +22757,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "partition_strings_splitN_test.flux",
-																				Source: "r",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 62,
 																					Line:   38,
@@ -22776,7 +22776,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "partition_strings_splitN_test.flux",
-																				Source: "_value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 64,
 																					Line:   38,
@@ -22797,7 +22797,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "partition_strings_splitN_test.flux",
-																		Source: "t: \" \"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 72,
 																			Line:   38,
@@ -22815,7 +22815,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "partition_strings_splitN_test.flux",
-																			Source: "t",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 72,
 																				Line:   38,
@@ -22835,7 +22835,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "partition_strings_splitN_test.flux",
-																			Source: "\" \"",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 75,
 																				Line:   38,
@@ -22854,7 +22854,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "partition_strings_splitN_test.flux",
-																		Source: "i: 2",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 80,
 																			Line:   38,
@@ -22872,7 +22872,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "partition_strings_splitN_test.flux",
-																			Source: "i",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 80,
 																				Line:   38,
@@ -22892,7 +22892,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "partition_strings_splitN_test.flux",
-																			Source: "2",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 83,
 																				Line:   38,
@@ -22914,7 +22914,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "partition_strings_splitN_test.flux",
-																Source: "strings.splitN(v: r._value, t: \" \", i: 2)",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -22931,7 +22931,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "partition_strings_splitN_test.flux",
-																	Source: "strings.splitN",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -22949,7 +22949,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "partition_strings_splitN_test.flux",
-																		Source: "strings",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 44,
 																			Line:   38,
@@ -22968,7 +22968,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "partition_strings_splitN_test.flux",
-																		Source: "splitN",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 52,
 																			Line:   38,
@@ -22991,7 +22991,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "partition_strings_splitN_test.flux",
-															Source: "strings.splitN(v: r._value, t: \" \", i: 2)[0]",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -23008,7 +23008,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "partition_strings_splitN_test.flux",
-																Source: "0",
+																Source: "",
 																Start: ast.Position{
 																	Column: 86,
 																	Line:   38,
@@ -23032,7 +23032,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "partition_strings_splitN_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -23056,7 +23056,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -23074,7 +23074,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -23101,7 +23101,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "partition_strings_splitN_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.splitN(v: r._value, t: \" \", i: 2)[0]}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -23118,7 +23118,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "partition_strings_splitN_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -23142,7 +23142,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "partition_strings_splitN_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 23,
 								Line:   35,
@@ -23160,7 +23160,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "partition_strings_splitN_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 23,
 									Line:   35,
@@ -23179,7 +23179,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "partition_strings_splitN_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 29,
 								Line:   35,
@@ -23200,7 +23200,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "_string_partition = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -23217,7 +23217,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "partition_strings_splitN_test.flux",
-							Source: "_string_partition",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -23237,7 +23237,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "partition_strings_splitN_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+							Source: "",
 							Start: ast.Position{
 								Column: 26,
 								Line:   40,
@@ -23254,7 +23254,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "partition_strings_splitN_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -23271,7 +23271,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "partition_strings_splitN_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -23289,7 +23289,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "partition_strings_splitN_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -23307,7 +23307,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -23328,7 +23328,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -23346,7 +23346,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -23364,7 +23364,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "partition_strings_splitN_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -23384,7 +23384,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "partition_strings_splitN_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -23406,7 +23406,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -23423,7 +23423,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -23441,7 +23441,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -23460,7 +23460,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -23484,7 +23484,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "partition_strings_splitN_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -23502,7 +23502,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -23523,7 +23523,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -23541,7 +23541,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -23559,7 +23559,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "partition_strings_splitN_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -23579,7 +23579,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "partition_strings_splitN_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -23601,7 +23601,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -23618,7 +23618,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "partition_strings_splitN_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -23636,7 +23636,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -23655,7 +23655,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "partition_strings_splitN_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -23679,7 +23679,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "partition_strings_splitN_test.flux",
-										Source: "fn: t_string_partition",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -23697,7 +23697,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -23717,7 +23717,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "partition_strings_splitN_test.flux",
-											Source: "t_string_partition",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -23747,7 +23747,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "test _string_partition = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -23767,7 +23767,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -23784,7 +23784,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -23804,7 +23804,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -23821,7 +23821,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -23843,7 +23843,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "partition_strings_splitN_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -23860,7 +23860,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "partition_strings_splitN_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -23880,7 +23880,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "repeat_strings_repeat_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,aa,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe   2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F213F2,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_partition = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.repeat(v: r._value, i: 2)}))\n\ntest _string_partition = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -23898,7 +23898,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -23915,7 +23915,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "repeat_strings_repeat_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -23935,7 +23935,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "repeat_strings_repeat_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -23952,7 +23952,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "repeat_strings_repeat_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -23975,7 +23975,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -23992,7 +23992,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -24009,7 +24009,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -24028,7 +24028,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -24047,7 +24047,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,aa,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe   2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F213F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -24064,7 +24064,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -24083,7 +24083,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,aa,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe   2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F213F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -24102,7 +24102,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "t_string_partition = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.repeat(v: r._value, i: 2)}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -24119,7 +24119,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "t_string_partition",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -24139,7 +24139,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.repeat(v: r._value, i: 2)}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 22,
 							Line:   35,
@@ -24158,7 +24158,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "repeat_strings_repeat_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -24176,7 +24176,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "repeat_strings_repeat_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -24194,7 +24194,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "repeat_strings_repeat_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -24212,7 +24212,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -24230,7 +24230,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -24250,7 +24250,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -24272,7 +24272,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "repeat_strings_repeat_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -24289,7 +24289,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "repeat_strings_repeat_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -24311,7 +24311,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "repeat_strings_repeat_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.repeat(v: r._value, i: 2)}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -24329,7 +24329,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "repeat_strings_repeat_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.repeat(v: r._value, i: 2)})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -24347,7 +24347,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "repeat_strings_repeat_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.repeat(v: r._value, i: 2)})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -24365,7 +24365,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -24386,7 +24386,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "(r) => ({r with _value: strings.repeat(v: r._value, i: 2)})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -24403,7 +24403,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "({r with _value: strings.repeat(v: r._value, i: 2)})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -24420,7 +24420,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "{r with _value: strings.repeat(v: r._value, i: 2)}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -24438,7 +24438,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "repeat_strings_repeat_test.flux",
-														Source: "_value: strings.repeat(v: r._value, i: 2)",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -24456,7 +24456,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "repeat_strings_repeat_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -24477,7 +24477,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "repeat_strings_repeat_test.flux",
-																Source: "v: r._value, i: 2",
+																Source: "",
 																Start: ast.Position{
 																	Column: 59,
 																	Line:   38,
@@ -24495,7 +24495,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "repeat_strings_repeat_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 59,
 																		Line:   38,
@@ -24513,7 +24513,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "repeat_strings_repeat_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 59,
 																			Line:   38,
@@ -24533,7 +24533,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "repeat_strings_repeat_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 62,
 																			Line:   38,
@@ -24551,7 +24551,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "repeat_strings_repeat_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 62,
 																				Line:   38,
@@ -24570,7 +24570,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "repeat_strings_repeat_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 64,
 																				Line:   38,
@@ -24591,7 +24591,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "repeat_strings_repeat_test.flux",
-																	Source: "i: 2",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 72,
 																		Line:   38,
@@ -24609,7 +24609,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "repeat_strings_repeat_test.flux",
-																		Source: "i",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 72,
 																			Line:   38,
@@ -24629,7 +24629,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "repeat_strings_repeat_test.flux",
-																		Source: "2",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 75,
 																			Line:   38,
@@ -24651,7 +24651,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "repeat_strings_repeat_test.flux",
-															Source: "strings.repeat(v: r._value, i: 2)",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -24668,7 +24668,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "repeat_strings_repeat_test.flux",
-																Source: "strings.repeat",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -24686,7 +24686,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "repeat_strings_repeat_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -24705,7 +24705,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "repeat_strings_repeat_test.flux",
-																	Source: "repeat",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -24731,7 +24731,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "repeat_strings_repeat_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -24755,7 +24755,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -24773,7 +24773,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -24800,7 +24800,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "repeat_strings_repeat_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.repeat(v: r._value, i: 2)}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -24817,7 +24817,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "repeat_strings_repeat_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -24841,7 +24841,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "repeat_strings_repeat_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 23,
 								Line:   35,
@@ -24859,7 +24859,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "repeat_strings_repeat_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 23,
 									Line:   35,
@@ -24878,7 +24878,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "repeat_strings_repeat_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 29,
 								Line:   35,
@@ -24899,7 +24899,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "_string_partition = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -24916,7 +24916,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "repeat_strings_repeat_test.flux",
-							Source: "_string_partition",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -24936,7 +24936,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "repeat_strings_repeat_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+							Source: "",
 							Start: ast.Position{
 								Column: 26,
 								Line:   40,
@@ -24953,7 +24953,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "repeat_strings_repeat_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -24970,7 +24970,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "repeat_strings_repeat_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -24988,7 +24988,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "repeat_strings_repeat_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -25006,7 +25006,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -25027,7 +25027,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -25045,7 +25045,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -25063,7 +25063,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "repeat_strings_repeat_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -25083,7 +25083,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "repeat_strings_repeat_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -25105,7 +25105,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -25122,7 +25122,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -25140,7 +25140,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -25159,7 +25159,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -25183,7 +25183,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "repeat_strings_repeat_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -25201,7 +25201,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -25222,7 +25222,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -25240,7 +25240,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -25258,7 +25258,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "repeat_strings_repeat_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -25278,7 +25278,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "repeat_strings_repeat_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -25300,7 +25300,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -25317,7 +25317,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "repeat_strings_repeat_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -25335,7 +25335,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -25354,7 +25354,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "repeat_strings_repeat_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -25378,7 +25378,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "repeat_strings_repeat_test.flux",
-										Source: "fn: t_string_partition",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -25396,7 +25396,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -25416,7 +25416,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "repeat_strings_repeat_test.flux",
-											Source: "t_string_partition",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -25446,7 +25446,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "test _string_partition = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_partition})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -25466,7 +25466,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -25483,7 +25483,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -25503,7 +25503,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -25520,7 +25520,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -25542,7 +25542,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "repeat_strings_repeat_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -25559,7 +25559,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "repeat_strings_repeat_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -25579,7 +25579,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "replace_strings_replace_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,c NMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_replace = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)}))\n\ntest _string_replace = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_replace})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -25597,7 +25597,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -25614,7 +25614,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "replace_strings_replace_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -25634,7 +25634,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "replace_strings_replace_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -25651,7 +25651,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "replace_strings_replace_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -25674,7 +25674,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -25691,7 +25691,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -25708,7 +25708,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -25727,7 +25727,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -25746,7 +25746,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,c NMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -25763,7 +25763,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -25782,7 +25782,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,c NMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -25801,7 +25801,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "t_string_replace = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -25818,7 +25818,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "t_string_replace",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -25838,7 +25838,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 20,
 							Line:   35,
@@ -25857,7 +25857,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "replace_strings_replace_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -25875,7 +25875,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "replace_strings_replace_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -25893,7 +25893,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "replace_strings_replace_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -25911,7 +25911,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -25929,7 +25929,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -25949,7 +25949,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -25971,7 +25971,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "replace_strings_replace_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -25988,7 +25988,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "replace_strings_replace_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -26010,7 +26010,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "replace_strings_replace_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -26028,7 +26028,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "replace_strings_replace_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -26046,7 +26046,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "replace_strings_replace_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -26064,7 +26064,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -26085,7 +26085,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "(r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -26102,7 +26102,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -26119,7 +26119,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "{r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -26137,7 +26137,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "replace_strings_replace_test.flux",
-														Source: "_value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -26155,7 +26155,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "replace_strings_replace_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -26176,7 +26176,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "replace_strings_replace_test.flux",
-																Source: "v: r._value, t: \"LnSk\", u: \" \", i: 1",
+																Source: "",
 																Start: ast.Position{
 																	Column: 60,
 																	Line:   38,
@@ -26194,7 +26194,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "replace_strings_replace_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 60,
 																		Line:   38,
@@ -26212,7 +26212,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 60,
 																			Line:   38,
@@ -26232,7 +26232,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 63,
 																			Line:   38,
@@ -26250,7 +26250,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "replace_strings_replace_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 63,
 																				Line:   38,
@@ -26269,7 +26269,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "replace_strings_replace_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 65,
 																				Line:   38,
@@ -26290,7 +26290,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "replace_strings_replace_test.flux",
-																	Source: "t: \"LnSk\"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 73,
 																		Line:   38,
@@ -26308,7 +26308,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "t",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 73,
 																			Line:   38,
@@ -26328,7 +26328,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "\"LnSk\"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 76,
 																			Line:   38,
@@ -26347,7 +26347,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "replace_strings_replace_test.flux",
-																	Source: "u: \" \"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 84,
 																		Line:   38,
@@ -26365,7 +26365,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "u",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 84,
 																			Line:   38,
@@ -26385,7 +26385,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "\" \"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 87,
 																			Line:   38,
@@ -26404,7 +26404,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "replace_strings_replace_test.flux",
-																	Source: "i: 1",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 92,
 																		Line:   38,
@@ -26422,7 +26422,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "i",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 92,
 																			Line:   38,
@@ -26442,7 +26442,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "replace_strings_replace_test.flux",
-																		Source: "1",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 95,
 																			Line:   38,
@@ -26464,7 +26464,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "replace_strings_replace_test.flux",
-															Source: "strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -26481,7 +26481,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "replace_strings_replace_test.flux",
-																Source: "strings.replace",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -26499,7 +26499,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "replace_strings_replace_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -26518,7 +26518,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "replace_strings_replace_test.flux",
-																	Source: "replace",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -26544,7 +26544,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "replace_strings_replace_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -26568,7 +26568,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -26586,7 +26586,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -26613,7 +26613,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "replace_strings_replace_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.replace(v: r._value, t: \"LnSk\", u: \" \", i: 1)}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -26630,7 +26630,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "replace_strings_replace_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -26654,7 +26654,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "replace_strings_replace_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   35,
@@ -26672,7 +26672,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "replace_strings_replace_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   35,
@@ -26691,7 +26691,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "replace_strings_replace_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 27,
 								Line:   35,
@@ -26712,7 +26712,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "_string_replace = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_replace})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -26729,7 +26729,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "replace_strings_replace_test.flux",
-							Source: "_string_replace",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -26749,7 +26749,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "replace_strings_replace_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_replace})",
+							Source: "",
 							Start: ast.Position{
 								Column: 24,
 								Line:   40,
@@ -26766,7 +26766,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "replace_strings_replace_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_replace})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -26783,7 +26783,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "replace_strings_replace_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_replace}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -26801,7 +26801,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "replace_strings_replace_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -26819,7 +26819,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -26840,7 +26840,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -26858,7 +26858,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -26876,7 +26876,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "replace_strings_replace_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -26896,7 +26896,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "replace_strings_replace_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -26918,7 +26918,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -26935,7 +26935,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -26953,7 +26953,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -26972,7 +26972,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -26996,7 +26996,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "replace_strings_replace_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -27014,7 +27014,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -27035,7 +27035,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -27053,7 +27053,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -27071,7 +27071,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "replace_strings_replace_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -27091,7 +27091,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "replace_strings_replace_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -27113,7 +27113,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -27130,7 +27130,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "replace_strings_replace_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -27148,7 +27148,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -27167,7 +27167,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "replace_strings_replace_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -27191,7 +27191,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "replace_strings_replace_test.flux",
-										Source: "fn: t_string_replace",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -27209,7 +27209,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -27229,7 +27229,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "replace_strings_replace_test.flux",
-											Source: "t_string_replace",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -27259,7 +27259,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "test _string_replace = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_replace})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -27279,7 +27279,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -27296,7 +27296,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -27316,7 +27316,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -27333,7 +27333,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -27355,7 +27355,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "replace_strings_replace_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -27372,7 +27372,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "replace_strings_replace_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -27392,7 +27392,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "rstrip_string_trimRight_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,  cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,  cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_trimRight = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")}))\n\ntest _string_trimRight = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimRight})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -27410,7 +27410,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -27427,7 +27427,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "rstrip_string_trimRight_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -27447,7 +27447,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "rstrip_string_trimRight_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -27464,7 +27464,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "rstrip_string_trimRight_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -27487,7 +27487,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -27504,7 +27504,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,  cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -27521,7 +27521,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -27540,7 +27540,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,  cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -27559,7 +27559,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,  cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -27576,7 +27576,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -27595,7 +27595,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,      k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,  2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,  cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -27614,7 +27614,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "t_string_trimRight = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -27631,7 +27631,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "t_string_trimRight",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -27651,7 +27651,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 22,
 							Line:   35,
@@ -27670,7 +27670,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "rstrip_string_trimRight_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -27688,7 +27688,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "rstrip_string_trimRight_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -27706,7 +27706,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "rstrip_string_trimRight_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -27724,7 +27724,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -27742,7 +27742,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -27762,7 +27762,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -27784,7 +27784,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "rstrip_string_trimRight_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -27801,7 +27801,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "rstrip_string_trimRight_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -27823,7 +27823,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "rstrip_string_trimRight_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -27841,7 +27841,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "rstrip_string_trimRight_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -27859,7 +27859,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "rstrip_string_trimRight_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -27877,7 +27877,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -27898,7 +27898,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "(r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -27915,7 +27915,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "({r with _value: strings.trimRight(v: r._value, cutset: \" \")})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -27932,7 +27932,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "{r with _value: strings.trimRight(v: r._value, cutset: \" \")}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -27950,7 +27950,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "rstrip_string_trimRight_test.flux",
-														Source: "_value: strings.trimRight(v: r._value, cutset: \" \")",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -27968,7 +27968,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "rstrip_string_trimRight_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -27989,7 +27989,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "rstrip_string_trimRight_test.flux",
-																Source: "v: r._value, cutset: \" \"",
+																Source: "",
 																Start: ast.Position{
 																	Column: 62,
 																	Line:   38,
@@ -28007,7 +28007,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "rstrip_string_trimRight_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 62,
 																		Line:   38,
@@ -28025,7 +28025,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "rstrip_string_trimRight_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 62,
 																			Line:   38,
@@ -28045,7 +28045,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "rstrip_string_trimRight_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 65,
 																			Line:   38,
@@ -28063,7 +28063,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "rstrip_string_trimRight_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 65,
 																				Line:   38,
@@ -28082,7 +28082,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "rstrip_string_trimRight_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 67,
 																				Line:   38,
@@ -28103,7 +28103,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "rstrip_string_trimRight_test.flux",
-																	Source: "cutset: \" \"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 75,
 																		Line:   38,
@@ -28121,7 +28121,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "rstrip_string_trimRight_test.flux",
-																		Source: "cutset",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 75,
 																			Line:   38,
@@ -28141,7 +28141,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "rstrip_string_trimRight_test.flux",
-																		Source: "\" \"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 83,
 																			Line:   38,
@@ -28163,7 +28163,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "rstrip_string_trimRight_test.flux",
-															Source: "strings.trimRight(v: r._value, cutset: \" \")",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -28180,7 +28180,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "rstrip_string_trimRight_test.flux",
-																Source: "strings.trimRight",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -28198,7 +28198,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "rstrip_string_trimRight_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -28217,7 +28217,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "rstrip_string_trimRight_test.flux",
-																	Source: "trimRight",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -28243,7 +28243,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "rstrip_string_trimRight_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -28267,7 +28267,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -28285,7 +28285,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -28312,7 +28312,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "rstrip_string_trimRight_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.trimRight(v: r._value, cutset: \" \")}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -28329,7 +28329,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "rstrip_string_trimRight_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -28353,7 +28353,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "rstrip_string_trimRight_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 23,
 								Line:   35,
@@ -28371,7 +28371,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "rstrip_string_trimRight_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 23,
 									Line:   35,
@@ -28390,7 +28390,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "rstrip_string_trimRight_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 29,
 								Line:   35,
@@ -28411,7 +28411,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "_string_trimRight = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimRight})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -28428,7 +28428,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "rstrip_string_trimRight_test.flux",
-							Source: "_string_trimRight",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -28448,7 +28448,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "rstrip_string_trimRight_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimRight})",
+							Source: "",
 							Start: ast.Position{
 								Column: 26,
 								Line:   40,
@@ -28465,7 +28465,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "rstrip_string_trimRight_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimRight})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -28482,7 +28482,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "rstrip_string_trimRight_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimRight}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -28500,7 +28500,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "rstrip_string_trimRight_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -28518,7 +28518,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -28539,7 +28539,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -28557,7 +28557,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -28575,7 +28575,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "rstrip_string_trimRight_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -28595,7 +28595,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "rstrip_string_trimRight_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -28617,7 +28617,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -28634,7 +28634,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -28652,7 +28652,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -28671,7 +28671,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -28695,7 +28695,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "rstrip_string_trimRight_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -28713,7 +28713,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -28734,7 +28734,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -28752,7 +28752,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -28770,7 +28770,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "rstrip_string_trimRight_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -28790,7 +28790,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "rstrip_string_trimRight_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -28812,7 +28812,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -28829,7 +28829,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "rstrip_string_trimRight_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -28847,7 +28847,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -28866,7 +28866,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "rstrip_string_trimRight_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -28890,7 +28890,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "rstrip_string_trimRight_test.flux",
-										Source: "fn: t_string_trimRight",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -28908,7 +28908,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -28928,7 +28928,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "rstrip_string_trimRight_test.flux",
-											Source: "t_string_trimRight",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -28958,7 +28958,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "test _string_trimRight = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_trimRight})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -28978,7 +28978,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -28995,7 +28995,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -29015,7 +29015,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -29032,7 +29032,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -29054,7 +29054,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "rstrip_string_trimRight_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -29071,7 +29071,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "rstrip_string_trimRight_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -29091,7 +29091,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "startswith_strings_regexp_hasPrefix_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\nimport \"regexp\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n\"\nre = regexp.compile(v: \"[[:alpha:]]{1}\")\nt_string_regexp_hasPrefix = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0]))\n\ntest _string_regexp_hasPrefix = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasPrefix})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -29109,7 +29109,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   8,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   8,
@@ -29126,7 +29126,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   8,
@@ -29146,7 +29146,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   8,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   8,
@@ -29163,7 +29163,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   8,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   8,
@@ -29186,7 +29186,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   8,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   8,
@@ -29203,7 +29203,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   22,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   10,
@@ -29220,7 +29220,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   10,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   10,
@@ -29239,7 +29239,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   11,
@@ -29258,7 +29258,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   33,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   23,
@@ -29275,7 +29275,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   23,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   23,
@@ -29294,7 +29294,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   33,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9ngm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   24,
@@ -29313,7 +29313,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "re = regexp.compile(v: \"[[:alpha:]]{1}\")",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   34,
@@ -29330,7 +29330,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "re",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   34,
@@ -29350,7 +29350,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   34,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "v: \"[[:alpha:]]{1}\"",
+							Source: "",
 							Start: ast.Position{
 								Column: 21,
 								Line:   34,
@@ -29368,7 +29368,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   34,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "v: \"[[:alpha:]]{1}\"",
+								Source: "",
 								Start: ast.Position{
 									Column: 21,
 									Line:   34,
@@ -29386,7 +29386,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   34,
 									},
 									File:   "startswith_strings_regexp_hasPrefix_test.flux",
-									Source: "v",
+									Source: "",
 									Start: ast.Position{
 										Column: 21,
 										Line:   34,
@@ -29406,7 +29406,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   34,
 									},
 									File:   "startswith_strings_regexp_hasPrefix_test.flux",
-									Source: "\"[[:alpha:]]{1}\"",
+									Source: "",
 									Start: ast.Position{
 										Column: 24,
 										Line:   34,
@@ -29428,7 +29428,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "regexp.compile(v: \"[[:alpha:]]{1}\")",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   34,
@@ -29445,7 +29445,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   34,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "regexp.compile",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   34,
@@ -29463,7 +29463,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   34,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "regexp",
+								Source: "",
 								Start: ast.Position{
 									Column: 6,
 									Line:   34,
@@ -29482,7 +29482,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   34,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "compile",
+								Source: "",
 								Start: ast.Position{
 									Column: 13,
 									Line:   34,
@@ -29506,7 +29506,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "t_string_regexp_hasPrefix = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0]))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -29523,7 +29523,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "t_string_regexp_hasPrefix",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -29543,7 +29543,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0]))",
+						Source: "",
 						Start: ast.Position{
 							Column: 29,
 							Line:   35,
@@ -29562,7 +29562,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "startswith_strings_regexp_hasPrefix_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -29580,7 +29580,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -29598,7 +29598,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "startswith_strings_regexp_hasPrefix_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -29616,7 +29616,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -29634,7 +29634,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -29654,7 +29654,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -29676,7 +29676,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "startswith_strings_regexp_hasPrefix_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -29693,7 +29693,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "startswith_strings_regexp_hasPrefix_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -29715,7 +29715,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> filter(fn: (r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0]))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -29733,7 +29733,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "startswith_strings_regexp_hasPrefix_test.flux",
-									Source: "fn: (r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0])",
+									Source: "",
 									Start: ast.Position{
 										Column: 19,
 										Line:   38,
@@ -29751,7 +29751,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "startswith_strings_regexp_hasPrefix_test.flux",
-										Source: "fn: (r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0])",
+										Source: "",
 										Start: ast.Position{
 											Column: 19,
 											Line:   38,
@@ -29769,7 +29769,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 19,
 												Line:   38,
@@ -29790,7 +29790,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "(r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0])",
+											Source: "",
 											Start: ast.Position{
 												Column: 23,
 												Line:   38,
@@ -29808,7 +29808,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "r: re, v: strings.split(v: r._value, t: \"\")[0]",
+													Source: "",
 													Start: ast.Position{
 														Column: 55,
 														Line:   38,
@@ -29826,7 +29826,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "r: re",
+														Source: "",
 														Start: ast.Position{
 															Column: 55,
 															Line:   38,
@@ -29844,7 +29844,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "startswith_strings_regexp_hasPrefix_test.flux",
-															Source: "r",
+															Source: "",
 															Start: ast.Position{
 																Column: 55,
 																Line:   38,
@@ -29864,7 +29864,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "startswith_strings_regexp_hasPrefix_test.flux",
-															Source: "re",
+															Source: "",
 															Start: ast.Position{
 																Column: 58,
 																Line:   38,
@@ -29883,7 +29883,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "v: strings.split(v: r._value, t: \"\")[0]",
+														Source: "",
 														Start: ast.Position{
 															Column: 62,
 															Line:   38,
@@ -29901,7 +29901,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "startswith_strings_regexp_hasPrefix_test.flux",
-															Source: "v",
+															Source: "",
 															Start: ast.Position{
 																Column: 62,
 																Line:   38,
@@ -29923,7 +29923,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																	Source: "v: r._value, t: \"\"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 79,
 																		Line:   38,
@@ -29941,7 +29941,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																		Source: "v: r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 79,
 																			Line:   38,
@@ -29959,7 +29959,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																			Source: "v",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 79,
 																				Line:   38,
@@ -29979,7 +29979,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																			Source: "r._value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 82,
 																				Line:   38,
@@ -29997,7 +29997,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																				Source: "r",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 82,
 																					Line:   38,
@@ -30016,7 +30016,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   38,
 																				},
 																				File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																				Source: "_value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 84,
 																					Line:   38,
@@ -30037,7 +30037,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																		Source: "t: \"\"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 92,
 																			Line:   38,
@@ -30055,7 +30055,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																			Source: "t",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 92,
 																				Line:   38,
@@ -30075,7 +30075,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																			Source: "\"\"",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 95,
 																				Line:   38,
@@ -30097,7 +30097,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																Source: "strings.split(v: r._value, t: \"\")",
+																Source: "",
 																Start: ast.Position{
 																	Column: 65,
 																	Line:   38,
@@ -30114,7 +30114,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																	Source: "strings.split",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 65,
 																		Line:   38,
@@ -30132,7 +30132,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																		Source: "strings",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 65,
 																			Line:   38,
@@ -30151,7 +30151,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																		Source: "split",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 73,
 																			Line:   38,
@@ -30174,7 +30174,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "startswith_strings_regexp_hasPrefix_test.flux",
-															Source: "strings.split(v: r._value, t: \"\")[0]",
+															Source: "",
 															Start: ast.Position{
 																Column: 65,
 																Line:   38,
@@ -30191,7 +30191,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "startswith_strings_regexp_hasPrefix_test.flux",
-																Source: "0",
+																Source: "",
 																Start: ast.Position{
 																	Column: 99,
 																	Line:   38,
@@ -30216,7 +30216,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0])",
+												Source: "",
 												Start: ast.Position{
 													Column: 30,
 													Line:   38,
@@ -30233,7 +30233,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "regexp.matchRegexpString",
+													Source: "",
 													Start: ast.Position{
 														Column: 30,
 														Line:   38,
@@ -30251,7 +30251,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "regexp",
+														Source: "",
 														Start: ast.Position{
 															Column: 30,
 															Line:   38,
@@ -30270,7 +30270,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "matchRegexpString",
+														Source: "",
 														Start: ast.Position{
 															Column: 37,
 															Line:   38,
@@ -30295,7 +30295,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 24,
 													Line:   38,
@@ -30313,7 +30313,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 24,
 														Line:   38,
@@ -30340,7 +30340,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "filter(fn: (r) => regexp.matchRegexpString(r: re, v: strings.split(v: r._value, t: \"\")[0]))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -30357,7 +30357,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "startswith_strings_regexp_hasPrefix_test.flux",
-									Source: "filter",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -30381,7 +30381,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 30,
 								Line:   35,
@@ -30399,7 +30399,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 30,
 									Line:   35,
@@ -30418,7 +30418,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 36,
 								Line:   35,
@@ -30439,7 +30439,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "_string_regexp_hasPrefix = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasPrefix})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -30456,7 +30456,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "_string_regexp_hasPrefix",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -30476,7 +30476,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "startswith_strings_regexp_hasPrefix_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasPrefix})",
+							Source: "",
 							Start: ast.Position{
 								Column: 33,
 								Line:   40,
@@ -30493,7 +30493,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "startswith_strings_regexp_hasPrefix_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasPrefix})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -30510,7 +30510,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "startswith_strings_regexp_hasPrefix_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasPrefix}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -30528,7 +30528,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "startswith_strings_regexp_hasPrefix_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -30546,7 +30546,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -30567,7 +30567,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -30585,7 +30585,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -30603,7 +30603,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -30623,7 +30623,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -30645,7 +30645,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -30662,7 +30662,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -30680,7 +30680,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -30699,7 +30699,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -30723,7 +30723,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "startswith_strings_regexp_hasPrefix_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -30741,7 +30741,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -30762,7 +30762,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -30780,7 +30780,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -30798,7 +30798,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -30818,7 +30818,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "startswith_strings_regexp_hasPrefix_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -30840,7 +30840,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -30857,7 +30857,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "startswith_strings_regexp_hasPrefix_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -30875,7 +30875,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -30894,7 +30894,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "startswith_strings_regexp_hasPrefix_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -30918,7 +30918,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "startswith_strings_regexp_hasPrefix_test.flux",
-										Source: "fn: t_string_regexp_hasPrefix",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -30936,7 +30936,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -30956,7 +30956,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "startswith_strings_regexp_hasPrefix_test.flux",
-											Source: "t_string_regexp_hasPrefix",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -30986,7 +30986,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "test _string_regexp_hasPrefix = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_regexp_hasPrefix})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -31006,7 +31006,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -31023,7 +31023,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -31043,7 +31043,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -31060,7 +31060,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -31080,7 +31080,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   6,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "import \"regexp\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   6,
@@ -31097,7 +31097,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   6,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "\"regexp\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   6,
@@ -31119,7 +31119,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "startswith_strings_regexp_hasPrefix_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -31136,7 +31136,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "startswith_strings_regexp_hasPrefix_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -31156,7 +31156,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   43,
 				},
 				File:   "strip_strings_trimLeftRight_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z, a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,   k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,  b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z, cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,    13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_lstrip = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(\n            fn: (r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")}),\n        )\n\ntest _string_lstrip = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_lstrip})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -31174,7 +31174,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -31191,7 +31191,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "strip_strings_trimLeftRight_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -31211,7 +31211,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "strip_strings_trimLeftRight_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -31228,7 +31228,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "strip_strings_trimLeftRight_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -31251,7 +31251,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -31268,7 +31268,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z, a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,   k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,  b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z, cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,    13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -31285,7 +31285,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -31304,7 +31304,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z, a ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,   k9n  gm ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,  b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe   ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z, cLnSkNMI ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,    13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -31323,7 +31323,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -31340,7 +31340,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -31359,7 +31359,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,b,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,cLnSkNMI,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -31378,7 +31378,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   40,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "t_string_lstrip = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(\n            fn: (r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")}),\n        )",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -31395,7 +31395,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "t_string_lstrip",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -31415,7 +31415,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   40,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(\n            fn: (r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")}),\n        )",
+						Source: "",
 						Start: ast.Position{
 							Column: 19,
 							Line:   35,
@@ -31434,7 +31434,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "strip_strings_trimLeftRight_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -31452,7 +31452,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "strip_strings_trimLeftRight_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -31470,7 +31470,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "strip_strings_trimLeftRight_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -31488,7 +31488,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -31506,7 +31506,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -31526,7 +31526,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -31548,7 +31548,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "strip_strings_trimLeftRight_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -31565,7 +31565,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "strip_strings_trimLeftRight_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -31587,7 +31587,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "strip_strings_trimLeftRight_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(\n            fn: (r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")}),\n        )",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -31605,7 +31605,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   39,
 									},
 									File:   "strip_strings_trimLeftRight_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")})",
+									Source: "",
 									Start: ast.Position{
 										Column: 13,
 										Line:   39,
@@ -31623,7 +31623,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   39,
 										},
 										File:   "strip_strings_trimLeftRight_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")})",
+										Source: "",
 										Start: ast.Position{
 											Column: 13,
 											Line:   39,
@@ -31641,7 +31641,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   39,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 13,
 												Line:   39,
@@ -31662,7 +31662,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   39,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "(r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")})",
+											Source: "",
 											Start: ast.Position{
 												Column: 17,
 												Line:   39,
@@ -31679,7 +31679,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")})",
+												Source: "",
 												Start: ast.Position{
 													Column: 24,
 													Line:   39,
@@ -31696,7 +31696,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   39,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "{r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")}",
+													Source: "",
 													Start: ast.Position{
 														Column: 25,
 														Line:   39,
@@ -31714,7 +31714,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   39,
 														},
 														File:   "strip_strings_trimLeftRight_test.flux",
-														Source: "_value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")",
+														Source: "",
 														Start: ast.Position{
 															Column: 33,
 															Line:   39,
@@ -31732,7 +31732,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   39,
 															},
 															File:   "strip_strings_trimLeftRight_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 33,
 																Line:   39,
@@ -31753,7 +31753,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   39,
 																},
 																File:   "strip_strings_trimLeftRight_test.flux",
-																Source: "v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \"",
+																Source: "",
 																Start: ast.Position{
 																	Column: 59,
 																	Line:   39,
@@ -31771,7 +31771,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "strip_strings_trimLeftRight_test.flux",
-																	Source: "v: strings.trimLeft(v: r._value, cutset: \" \")",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 59,
 																		Line:   39,
@@ -31789,7 +31789,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "strip_strings_trimLeftRight_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 59,
 																			Line:   39,
@@ -31810,7 +31810,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   39,
 																			},
 																			File:   "strip_strings_trimLeftRight_test.flux",
-																			Source: "v: r._value, cutset: \" \"",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 79,
 																				Line:   39,
@@ -31828,7 +31828,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   39,
 																				},
 																				File:   "strip_strings_trimLeftRight_test.flux",
-																				Source: "v: r._value",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 79,
 																					Line:   39,
@@ -31846,7 +31846,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   39,
 																					},
 																					File:   "strip_strings_trimLeftRight_test.flux",
-																					Source: "v",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 79,
 																						Line:   39,
@@ -31866,7 +31866,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   39,
 																					},
 																					File:   "strip_strings_trimLeftRight_test.flux",
-																					Source: "r._value",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 82,
 																						Line:   39,
@@ -31884,7 +31884,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																							Line:   39,
 																						},
 																						File:   "strip_strings_trimLeftRight_test.flux",
-																						Source: "r",
+																						Source: "",
 																						Start: ast.Position{
 																							Column: 82,
 																							Line:   39,
@@ -31903,7 +31903,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																							Line:   39,
 																						},
 																						File:   "strip_strings_trimLeftRight_test.flux",
-																						Source: "_value",
+																						Source: "",
 																						Start: ast.Position{
 																							Column: 84,
 																							Line:   39,
@@ -31924,7 +31924,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   39,
 																				},
 																				File:   "strip_strings_trimLeftRight_test.flux",
-																				Source: "cutset: \" \"",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 92,
 																					Line:   39,
@@ -31942,7 +31942,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   39,
 																					},
 																					File:   "strip_strings_trimLeftRight_test.flux",
-																					Source: "cutset",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 92,
 																						Line:   39,
@@ -31962,7 +31962,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																						Line:   39,
 																					},
 																					File:   "strip_strings_trimLeftRight_test.flux",
-																					Source: "\" \"",
+																					Source: "",
 																					Start: ast.Position{
 																						Column: 100,
 																						Line:   39,
@@ -31984,7 +31984,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "strip_strings_trimLeftRight_test.flux",
-																		Source: "strings.trimLeft(v: r._value, cutset: \" \")",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 62,
 																			Line:   39,
@@ -32001,7 +32001,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   39,
 																			},
 																			File:   "strip_strings_trimLeftRight_test.flux",
-																			Source: "strings.trimLeft",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 62,
 																				Line:   39,
@@ -32019,7 +32019,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   39,
 																				},
 																				File:   "strip_strings_trimLeftRight_test.flux",
-																				Source: "strings",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 62,
 																					Line:   39,
@@ -32038,7 +32038,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																					Line:   39,
 																				},
 																				File:   "strip_strings_trimLeftRight_test.flux",
-																				Source: "trimLeft",
+																				Source: "",
 																				Start: ast.Position{
 																					Column: 70,
 																					Line:   39,
@@ -32062,7 +32062,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "strip_strings_trimLeftRight_test.flux",
-																	Source: "cutset: \" \"",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 106,
 																		Line:   39,
@@ -32080,7 +32080,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "strip_strings_trimLeftRight_test.flux",
-																		Source: "cutset",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 106,
 																			Line:   39,
@@ -32100,7 +32100,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   39,
 																		},
 																		File:   "strip_strings_trimLeftRight_test.flux",
-																		Source: "\" \"",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 114,
 																			Line:   39,
@@ -32122,7 +32122,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   39,
 															},
 															File:   "strip_strings_trimLeftRight_test.flux",
-															Source: "strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")",
+															Source: "",
 															Start: ast.Position{
 																Column: 41,
 																Line:   39,
@@ -32139,7 +32139,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   39,
 																},
 																File:   "strip_strings_trimLeftRight_test.flux",
-																Source: "strings.trimRight",
+																Source: "",
 																Start: ast.Position{
 																	Column: 41,
 																	Line:   39,
@@ -32157,7 +32157,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "strip_strings_trimLeftRight_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 41,
 																		Line:   39,
@@ -32176,7 +32176,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   39,
 																	},
 																	File:   "strip_strings_trimLeftRight_test.flux",
-																	Source: "trimRight",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 49,
 																		Line:   39,
@@ -32202,7 +32202,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   39,
 														},
 														File:   "strip_strings_trimLeftRight_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 26,
 															Line:   39,
@@ -32226,7 +32226,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   39,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   39,
@@ -32244,7 +32244,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   39,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 18,
 														Line:   39,
@@ -32271,7 +32271,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   40,
 								},
 								File:   "strip_strings_trimLeftRight_test.flux",
-								Source: "map(\n            fn: (r) => ({r with _value: strings.trimRight(v: strings.trimLeft(v: r._value, cutset: \" \"), cutset: \" \")}),\n        )",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -32288,7 +32288,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "strip_strings_trimLeftRight_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -32312,7 +32312,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "strip_strings_trimLeftRight_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 20,
 								Line:   35,
@@ -32330,7 +32330,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "strip_strings_trimLeftRight_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   35,
@@ -32349,7 +32349,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "strip_strings_trimLeftRight_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 26,
 								Line:   35,
@@ -32370,7 +32370,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   43,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "_string_lstrip = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_lstrip})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   42,
@@ -32387,7 +32387,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   42,
 							},
 							File:   "strip_strings_trimLeftRight_test.flux",
-							Source: "_string_lstrip",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   42,
@@ -32407,7 +32407,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   43,
 							},
 							File:   "strip_strings_trimLeftRight_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_lstrip})",
+							Source: "",
 							Start: ast.Position{
 								Column: 23,
 								Line:   42,
@@ -32424,7 +32424,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   43,
 								},
 								File:   "strip_strings_trimLeftRight_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_lstrip})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   43,
@@ -32441,7 +32441,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   43,
 									},
 									File:   "strip_strings_trimLeftRight_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_lstrip}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   43,
@@ -32459,7 +32459,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "strip_strings_trimLeftRight_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   43,
@@ -32477,7 +32477,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   43,
@@ -32498,7 +32498,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   43,
@@ -32516,7 +32516,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   43,
@@ -32534,7 +32534,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "strip_strings_trimLeftRight_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   43,
@@ -32554,7 +32554,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "strip_strings_trimLeftRight_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   43,
@@ -32576,7 +32576,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   43,
@@ -32593,7 +32593,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   43,
@@ -32611,7 +32611,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   43,
@@ -32630,7 +32630,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   43,
@@ -32654,7 +32654,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "strip_strings_trimLeftRight_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   43,
@@ -32672,7 +32672,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   43,
@@ -32693,7 +32693,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   43,
@@ -32711,7 +32711,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   43,
@@ -32729,7 +32729,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "strip_strings_trimLeftRight_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   43,
@@ -32749,7 +32749,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   43,
 														},
 														File:   "strip_strings_trimLeftRight_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   43,
@@ -32771,7 +32771,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   43,
@@ -32788,7 +32788,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   43,
 												},
 												File:   "strip_strings_trimLeftRight_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   43,
@@ -32806,7 +32806,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   43,
@@ -32825,7 +32825,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   43,
 													},
 													File:   "strip_strings_trimLeftRight_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   43,
@@ -32849,7 +32849,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   43,
 										},
 										File:   "strip_strings_trimLeftRight_test.flux",
-										Source: "fn: t_string_lstrip",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   43,
@@ -32867,7 +32867,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   43,
@@ -32887,7 +32887,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   43,
 											},
 											File:   "strip_strings_trimLeftRight_test.flux",
-											Source: "t_string_lstrip",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   43,
@@ -32917,7 +32917,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   43,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "test _string_lstrip = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_lstrip})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   42,
@@ -32937,7 +32937,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -32954,7 +32954,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -32974,7 +32974,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -32991,7 +32991,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -33013,7 +33013,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "strip_strings_trimLeftRight_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -33030,7 +33030,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "strip_strings_trimLeftRight_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
@@ -33050,7 +33050,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 					Line:   41,
 				},
 				File:   "title_strings_title_test.flux",
-				Source: "package pandas_test\n\n\nimport \"testing\"\nimport \"strings\"\n\noption now = () => 2030-01-01T00:00:00Z\n\ninData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\noutData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,A,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,K9n  Gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,B  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,CLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"\nt_string_title = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.title(v: r._value)}))\n\ntest _string_title = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_title})",
+				Source: "",
 				Start: ast.Position{
 					Column: 1,
 					Line:   1,
@@ -33068,7 +33068,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   7,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "now = () => 2030-01-01T00:00:00Z",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   7,
@@ -33085,7 +33085,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "title_strings_title_test.flux",
-							Source: "now",
+							Source: "",
 							Start: ast.Position{
 								Column: 8,
 								Line:   7,
@@ -33105,7 +33105,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   7,
 							},
 							File:   "title_strings_title_test.flux",
-							Source: "() => 2030-01-01T00:00:00Z",
+							Source: "",
 							Start: ast.Position{
 								Column: 14,
 								Line:   7,
@@ -33122,7 +33122,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   7,
 								},
 								File:   "title_strings_title_test.flux",
-								Source: "2030-01-01T00:00:00Z",
+								Source: "",
 								Start: ast.Position{
 									Column: 20,
 									Line:   7,
@@ -33145,7 +33145,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   7,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "option now = () => 2030-01-01T00:00:00Z",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   7,
@@ -33162,7 +33162,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   21,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "inData =\n    \"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   9,
@@ -33179,7 +33179,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   9,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "inData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   9,
@@ -33198,7 +33198,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   21,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,\n,result,table,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,a,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:36Z,k9n  gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:46Z,b  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:06Z,cLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   10,
@@ -33217,7 +33217,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   34,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "outData =\n    \"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,A,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,K9n  Gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,B  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,CLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   22,
@@ -33234,7 +33234,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   22,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "outData",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   22,
@@ -33253,7 +33253,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   34,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "\"\n#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string,string,string,string\n#group,false,false,true,true,false,false,true,true,true,true,true,true\n#default,_result,,,,,,,,,,,\n,result,table,_start,_stop,_time,_value,_field,_measurement,device,fstype,host,path\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:26Z,A,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:36Z,K9n  Gm,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:46Z,B  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:53:56Z,2COTDe,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:06Z,CLnSkNMI  ,used_percent,disk,disk1,apfs,host.local,/\n,,0,2018-05-22T19:53:26Z,2030-01-01T00:00:00Z,2018-05-22T19:54:16Z,13F2  ,used_percent,disk,disk1,apfs,host.local,/\n\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 5,
 							Line:   23,
@@ -33272,7 +33272,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   38,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "t_string_title = (table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.title(v: r._value)}))",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   35,
@@ -33289,7 +33289,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   35,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "t_string_title",
+						Source: "",
 						Start: ast.Position{
 							Column: 1,
 							Line:   35,
@@ -33309,7 +33309,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   38,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "(table=<-) =>\n    table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.title(v: r._value)}))",
+						Source: "",
 						Start: ast.Position{
 							Column: 18,
 							Line:   35,
@@ -33328,7 +33328,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   36,
 									},
 									File:   "title_strings_title_test.flux",
-									Source: "table",
+									Source: "",
 									Start: ast.Position{
 										Column: 5,
 										Line:   36,
@@ -33346,7 +33346,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   37,
 								},
 								File:   "title_strings_title_test.flux",
-								Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   36,
@@ -33364,7 +33364,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "title_strings_title_test.flux",
-										Source: "start: 2018-05-22T19:53:26Z",
+										Source: "",
 										Start: ast.Position{
 											Column: 18,
 											Line:   37,
@@ -33382,7 +33382,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   37,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "start: 2018-05-22T19:53:26Z",
+											Source: "",
 											Start: ast.Position{
 												Column: 18,
 												Line:   37,
@@ -33400,7 +33400,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "start",
+												Source: "",
 												Start: ast.Position{
 													Column: 18,
 													Line:   37,
@@ -33420,7 +33420,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   37,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "2018-05-22T19:53:26Z",
+												Source: "",
 												Start: ast.Position{
 													Column: 25,
 													Line:   37,
@@ -33442,7 +33442,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   37,
 									},
 									File:   "title_strings_title_test.flux",
-									Source: "range(start: 2018-05-22T19:53:26Z)",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   37,
@@ -33459,7 +33459,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   37,
 										},
 										File:   "title_strings_title_test.flux",
-										Source: "range",
+										Source: "",
 										Start: ast.Position{
 											Column: 12,
 											Line:   37,
@@ -33481,7 +33481,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   38,
 							},
 							File:   "title_strings_title_test.flux",
-							Source: "table\n        |> range(start: 2018-05-22T19:53:26Z)\n        |> map(fn: (r) => ({r with _value: strings.title(v: r._value)}))",
+							Source: "",
 							Start: ast.Position{
 								Column: 5,
 								Line:   36,
@@ -33499,7 +33499,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "title_strings_title_test.flux",
-									Source: "fn: (r) => ({r with _value: strings.title(v: r._value)})",
+									Source: "",
 									Start: ast.Position{
 										Column: 16,
 										Line:   38,
@@ -33517,7 +33517,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   38,
 										},
 										File:   "title_strings_title_test.flux",
-										Source: "fn: (r) => ({r with _value: strings.title(v: r._value)})",
+										Source: "",
 										Start: ast.Position{
 											Column: 16,
 											Line:   38,
@@ -33535,7 +33535,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 16,
 												Line:   38,
@@ -33556,7 +33556,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   38,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "(r) => ({r with _value: strings.title(v: r._value)})",
+											Source: "",
 											Start: ast.Position{
 												Column: 20,
 												Line:   38,
@@ -33573,7 +33573,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "({r with _value: strings.title(v: r._value)})",
+												Source: "",
 												Start: ast.Position{
 													Column: 27,
 													Line:   38,
@@ -33590,7 +33590,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "{r with _value: strings.title(v: r._value)}",
+													Source: "",
 													Start: ast.Position{
 														Column: 28,
 														Line:   38,
@@ -33608,7 +33608,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "title_strings_title_test.flux",
-														Source: "_value: strings.title(v: r._value)",
+														Source: "",
 														Start: ast.Position{
 															Column: 36,
 															Line:   38,
@@ -33626,7 +33626,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "title_strings_title_test.flux",
-															Source: "_value",
+															Source: "",
 															Start: ast.Position{
 																Column: 36,
 																Line:   38,
@@ -33647,7 +33647,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "title_strings_title_test.flux",
-																Source: "v: r._value",
+																Source: "",
 																Start: ast.Position{
 																	Column: 58,
 																	Line:   38,
@@ -33665,7 +33665,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "title_strings_title_test.flux",
-																	Source: "v: r._value",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 58,
 																		Line:   38,
@@ -33683,7 +33683,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "title_strings_title_test.flux",
-																		Source: "v",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 58,
 																			Line:   38,
@@ -33703,7 +33703,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																			Line:   38,
 																		},
 																		File:   "title_strings_title_test.flux",
-																		Source: "r._value",
+																		Source: "",
 																		Start: ast.Position{
 																			Column: 61,
 																			Line:   38,
@@ -33721,7 +33721,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "title_strings_title_test.flux",
-																			Source: "r",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 61,
 																				Line:   38,
@@ -33740,7 +33740,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																				Line:   38,
 																			},
 																			File:   "title_strings_title_test.flux",
-																			Source: "_value",
+																			Source: "",
 																			Start: ast.Position{
 																				Column: 63,
 																				Line:   38,
@@ -33764,7 +33764,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																Line:   38,
 															},
 															File:   "title_strings_title_test.flux",
-															Source: "strings.title(v: r._value)",
+															Source: "",
 															Start: ast.Position{
 																Column: 44,
 																Line:   38,
@@ -33781,7 +33781,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																	Line:   38,
 																},
 																File:   "title_strings_title_test.flux",
-																Source: "strings.title",
+																Source: "",
 																Start: ast.Position{
 																	Column: 44,
 																	Line:   38,
@@ -33799,7 +33799,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "title_strings_title_test.flux",
-																	Source: "strings",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 44,
 																		Line:   38,
@@ -33818,7 +33818,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 																		Line:   38,
 																	},
 																	File:   "title_strings_title_test.flux",
-																	Source: "title",
+																	Source: "",
 																	Start: ast.Position{
 																		Column: 52,
 																		Line:   38,
@@ -33844,7 +33844,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   38,
 														},
 														File:   "title_strings_title_test.flux",
-														Source: "r",
+														Source: "",
 														Start: ast.Position{
 															Column: 29,
 															Line:   38,
@@ -33868,7 +33868,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   38,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "r",
+												Source: "",
 												Start: ast.Position{
 													Column: 21,
 													Line:   38,
@@ -33886,7 +33886,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   38,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "r",
+													Source: "",
 													Start: ast.Position{
 														Column: 21,
 														Line:   38,
@@ -33913,7 +33913,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   38,
 								},
 								File:   "title_strings_title_test.flux",
-								Source: "map(fn: (r) => ({r with _value: strings.title(v: r._value)}))",
+								Source: "",
 								Start: ast.Position{
 									Column: 12,
 									Line:   38,
@@ -33930,7 +33930,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   38,
 									},
 									File:   "title_strings_title_test.flux",
-									Source: "map",
+									Source: "",
 									Start: ast.Position{
 										Column: 12,
 										Line:   38,
@@ -33954,7 +33954,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "title_strings_title_test.flux",
-							Source: "table=<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 19,
 								Line:   35,
@@ -33972,7 +33972,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   35,
 								},
 								File:   "title_strings_title_test.flux",
-								Source: "table",
+								Source: "",
 								Start: ast.Position{
 									Column: 19,
 									Line:   35,
@@ -33991,7 +33991,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   35,
 							},
 							File:   "title_strings_title_test.flux",
-							Source: "<-",
+							Source: "",
 							Start: ast.Position{
 								Column: 25,
 								Line:   35,
@@ -34012,7 +34012,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   41,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "_string_title = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_title})",
+						Source: "",
 						Start: ast.Position{
 							Column: 6,
 							Line:   40,
@@ -34029,7 +34029,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   40,
 							},
 							File:   "title_strings_title_test.flux",
-							Source: "_string_title",
+							Source: "",
 							Start: ast.Position{
 								Column: 6,
 								Line:   40,
@@ -34049,7 +34049,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 								Line:   41,
 							},
 							File:   "title_strings_title_test.flux",
-							Source: "() =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_title})",
+							Source: "",
 							Start: ast.Position{
 								Column: 22,
 								Line:   40,
@@ -34066,7 +34066,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 									Line:   41,
 								},
 								File:   "title_strings_title_test.flux",
-								Source: "({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_title})",
+								Source: "",
 								Start: ast.Position{
 									Column: 5,
 									Line:   41,
@@ -34083,7 +34083,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 										Line:   41,
 									},
 									File:   "title_strings_title_test.flux",
-									Source: "{input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_title}",
+									Source: "",
 									Start: ast.Position{
 										Column: 6,
 										Line:   41,
@@ -34101,7 +34101,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "title_strings_title_test.flux",
-										Source: "input: testing.loadStorage(csv: inData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 7,
 											Line:   41,
@@ -34119,7 +34119,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "input",
+											Source: "",
 											Start: ast.Position{
 												Column: 7,
 												Line:   41,
@@ -34140,7 +34140,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "csv: inData",
+												Source: "",
 												Start: ast.Position{
 													Column: 34,
 													Line:   41,
@@ -34158,7 +34158,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "csv: inData",
+													Source: "",
 													Start: ast.Position{
 														Column: 34,
 														Line:   41,
@@ -34176,7 +34176,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "title_strings_title_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 34,
 															Line:   41,
@@ -34196,7 +34196,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "title_strings_title_test.flux",
-														Source: "inData",
+														Source: "",
 														Start: ast.Position{
 															Column: 39,
 															Line:   41,
@@ -34218,7 +34218,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "testing.loadStorage(csv: inData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 14,
 												Line:   41,
@@ -34235,7 +34235,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "testing.loadStorage",
+												Source: "",
 												Start: ast.Position{
 													Column: 14,
 													Line:   41,
@@ -34253,7 +34253,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 14,
 														Line:   41,
@@ -34272,7 +34272,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "loadStorage",
+													Source: "",
 													Start: ast.Position{
 														Column: 22,
 														Line:   41,
@@ -34296,7 +34296,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "title_strings_title_test.flux",
-										Source: "want: testing.loadMem(csv: outData)",
+										Source: "",
 										Start: ast.Position{
 											Column: 48,
 											Line:   41,
@@ -34314,7 +34314,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "want",
+											Source: "",
 											Start: ast.Position{
 												Column: 48,
 												Line:   41,
@@ -34335,7 +34335,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "csv: outData",
+												Source: "",
 												Start: ast.Position{
 													Column: 70,
 													Line:   41,
@@ -34353,7 +34353,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "csv: outData",
+													Source: "",
 													Start: ast.Position{
 														Column: 70,
 														Line:   41,
@@ -34371,7 +34371,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "title_strings_title_test.flux",
-														Source: "csv",
+														Source: "",
 														Start: ast.Position{
 															Column: 70,
 															Line:   41,
@@ -34391,7 +34391,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 															Line:   41,
 														},
 														File:   "title_strings_title_test.flux",
-														Source: "outData",
+														Source: "",
 														Start: ast.Position{
 															Column: 75,
 															Line:   41,
@@ -34413,7 +34413,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "testing.loadMem(csv: outData)",
+											Source: "",
 											Start: ast.Position{
 												Column: 54,
 												Line:   41,
@@ -34430,7 +34430,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 													Line:   41,
 												},
 												File:   "title_strings_title_test.flux",
-												Source: "testing.loadMem",
+												Source: "",
 												Start: ast.Position{
 													Column: 54,
 													Line:   41,
@@ -34448,7 +34448,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "testing",
+													Source: "",
 													Start: ast.Position{
 														Column: 54,
 														Line:   41,
@@ -34467,7 +34467,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 														Line:   41,
 													},
 													File:   "title_strings_title_test.flux",
-													Source: "loadMem",
+													Source: "",
 													Start: ast.Position{
 														Column: 62,
 														Line:   41,
@@ -34491,7 +34491,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 											Line:   41,
 										},
 										File:   "title_strings_title_test.flux",
-										Source: "fn: t_string_title",
+										Source: "",
 										Start: ast.Position{
 											Column: 85,
 											Line:   41,
@@ -34509,7 +34509,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "fn",
+											Source: "",
 											Start: ast.Position{
 												Column: 85,
 												Line:   41,
@@ -34529,7 +34529,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 												Line:   41,
 											},
 											File:   "title_strings_title_test.flux",
-											Source: "t_string_title",
+											Source: "",
 											Start: ast.Position{
 												Column: 89,
 												Line:   41,
@@ -34559,7 +34559,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   41,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "test _string_title = () =>\n    ({input: testing.loadStorage(csv: inData), want: testing.loadMem(csv: outData), fn: t_string_title})",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   40,
@@ -34579,7 +34579,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   4,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "import \"testing\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   4,
@@ -34596,7 +34596,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   4,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "\"testing\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   4,
@@ -34616,7 +34616,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   5,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "import \"strings\"",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   5,
@@ -34633,7 +34633,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   5,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "\"strings\"",
+						Source: "",
 						Start: ast.Position{
 							Column: 8,
 							Line:   5,
@@ -34655,7 +34655,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 						Line:   1,
 					},
 					File:   "title_strings_title_test.flux",
-					Source: "package pandas_test",
+					Source: "",
 					Start: ast.Position{
 						Column: 1,
 						Line:   1,
@@ -34672,7 +34672,7 @@ var FluxTestPackages = []*ast.Package{&ast.Package{
 							Line:   1,
 						},
 						File:   "title_strings_title_test.flux",
-						Source: "pandas_test",
+						Source: "",
 						Start: ast.Position{
 							Column: 9,
 							Line:   1,
