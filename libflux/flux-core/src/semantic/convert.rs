@@ -973,6 +973,7 @@ impl<'a> Converter<'a> {
             test,
             consequent,
             alternate,
+            typ: MonoType::Var(self.sub.fresh()),
         })
     }
 
