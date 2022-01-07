@@ -6,9 +6,9 @@ use chrono::FixedOffset;
 
 use super::semantic_generated::fbsemantic;
 use crate::{
-    ast, semantic,
+    ast,
     semantic::{
-        convert,
+        self, convert,
         env::Environment,
         import::Packages,
         nodes::{FunctionExpr, Package},
@@ -96,15 +96,10 @@ re !~ /foo/
         package: String::from("test"),
         files: f,
     };
-    let mut pkg =
-        match convert::convert_package(pkg, &Default::default(), &mut sub::Substitution::default())
-        {
-            Ok(pkg) => pkg,
-            Err(e) => {
-                assert!(false, "{}", e);
-                return;
-            }
-        };
+    let mut analyzer = Analyzer::new_with_defaults(Default::default(), Packages::default());
+    let (_, mut pkg) = analyzer
+        .analyze_ast(pkg)
+        .unwrap_or_else(|err| panic!("{}", err));
     let (vec, offset) = match super::serialize_pkg(&mut pkg) {
         Ok((v, o)) => (v, o),
         Err(e) => {
