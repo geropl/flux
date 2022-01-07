@@ -13,7 +13,8 @@ use crate::{
         import::Packages,
         nodes::{FunctionExpr, Package},
         sub,
-        walk::{walk, Node},
+        types::{MonoType, Tvar},
+        walk::{walk, walk_mut, Node, NodeMut},
         Analyzer,
     },
 };
@@ -96,10 +97,38 @@ re !~ /foo/
         package: String::from("test"),
         files: f,
     };
-    let mut analyzer = Analyzer::new_with_defaults(Default::default(), Packages::default());
-    let (_, mut pkg) = analyzer
-        .analyze_ast(pkg)
-        .unwrap_or_else(|err| panic!("{}", err));
+    let mut pkg =
+        match convert::convert_package(pkg, &Default::default(), &mut sub::Substitution::default())
+        {
+            Ok(pkg) => pkg,
+            Err(e) => {
+                assert!(false, "{}", e);
+                return;
+            }
+        };
+
+    // We can't serialize the error types so replace any `typ` fields with a dummy variable instead
+    walk_mut(
+        &mut |n: &mut NodeMut<'_>| {
+            let typ = match n {
+                NodeMut::ArrayExpr(a) => &mut a.typ,
+                NodeMut::DictExpr(a) => &mut a.typ,
+                NodeMut::FunctionExpr(a) => &mut a.typ,
+                NodeMut::BinaryExpr(a) => &mut a.typ,
+                NodeMut::CallExpr(a) => &mut a.typ,
+                NodeMut::ConditionalExpr(a) => &mut a.typ,
+                NodeMut::MemberExpr(a) => &mut a.typ,
+                NodeMut::IndexExpr(a) => &mut a.typ,
+                NodeMut::ObjectExpr(a) => &mut a.typ,
+                NodeMut::UnaryExpr(a) => &mut a.typ,
+                NodeMut::IdentifierExpr(a) => &mut a.typ,
+                _ => return,
+            };
+            *typ = MonoType::Var(Tvar(0));
+        },
+        &mut NodeMut::Package(&mut pkg),
+    );
+
     let (vec, offset) = match super::serialize_pkg(&mut pkg) {
         Ok((v, o)) => (v, o),
         Err(e) => {
